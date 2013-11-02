@@ -17,4 +17,5 @@ if (!$db->isConnected())
 else{
     echo "<h1>We are connected</h1>";
 }
+$tournament = new Tournament($db);
 ?>
