@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="http://masterme120.chronos.feralhosting.com/hackathon/dev/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -27,7 +27,7 @@
         }
       }
     </style>
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://masterme120.chronos.feralhosting.com/hackathon/dev/css/bootstrap-responsive.css" rel="stylesheet">
 
     </head>
 
