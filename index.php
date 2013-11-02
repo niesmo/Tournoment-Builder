@@ -12,18 +12,18 @@
       <?php 
       $list_of_tournaments = $db->select("Tournament","*","","","","9");
       print_r($list_of_tournaments);
-      for ($x=1; $x<=9; $x++)
+      for ($x=0; $x<9; $x++)
       {
         if (($x%3)==0) {
-          echo "<div class=\"row-fluid\">\n";
+          echo "<div class='row-fluid'>";
         }
-        echo "<div class=\"span4\">\n";
-        echo "<h2>Tournament: $list_of_tournaments[$x][Name] </h2>\n";
-        echo "<p>Tournament Description: $list_of_tournaments[$x][Description] </p>\n";
-        echo "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>\n";
+        echo "<div class='span4'>";
+              echo "<h2>Tournament: $list_of_tournaments[$x][Name] </h2>";
+              echo "<p>Tournament Description: $list_of_tournaments[$x][Description] </p>";
+              echo "<p><a class='btn' href='#'>View details &raquo;</a></p>";
         echo "</div>";
         if (($x%3)==0) {
-          echo "</div> <!--/row-->\n";
+          echo "</div> <!--/row-->";
         }
       } 
       ?>
