@@ -1,16 +1,8 @@
 <? include("inc/header.php");
+include("conf/config.php");
 if($_POST[submit]){
-	print_r($_POST);
-	$con=mysqli_connect("localhost", "root", "1yy5u8Uwmy1go57h", "Tournament", false,
-	"/media/sdp1/home/masterme120/private/mysql/socket");
-	if(mysqli_connect_errno($con)) {
-		echo "Connection to MySQL database failed: " . mysqli_connect_error();
-	} else {
-		mysqli_query($con, "INSERT INTO Tournament (Name, Type, StartDate, Status, Description,
-			Rules) VALUES ('$_POST[name]', '$_POST[type]', 'NOW()', 'OPEN',
-			'$_POST[description]', '$_POST[rules]');");
-	}
-	
+	$db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
+		"'$_POST[name]', '$_POST[type]', 'NOW()', 'OPEN', '$_POST[description]', '$_POST[rules]'"
 }
 ?>
 <form action="#" method="POST">
