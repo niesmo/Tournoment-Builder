@@ -1,5 +1,4 @@
 <?
-echo "here";
 require_once("conf/config.php");
 include("inc/header.php");
 if($_POST[submit]){
