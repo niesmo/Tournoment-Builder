@@ -1,7 +1,5 @@
-<?
-require_once("inc/header.php")
-require_once("conf/config.php");
-?>
+<?require_once("conf/config.php");?>
+<?require_once("inc/header.php");?>
       <div class="row-fluid">
         <div class="span12">
           <div class="hero-unit">
