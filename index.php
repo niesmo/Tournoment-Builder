@@ -13,7 +13,7 @@
             <div class="jumbotron">
         <h1>Create, Join and Manage Tournaments!</h1>
         <p class="lead">Tournament Builder lets you build Coowesomazing tournaments easily</p>
-        <a class="btn btn-large btn-success" href="#">Create a tournament</a>
+        <a class="btn btn-large btn-success" href="create.php">Create a tournament</a>
       </div>
       <hr>
 
