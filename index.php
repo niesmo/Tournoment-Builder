@@ -1,4 +1,4 @@
-<? require_once (inc/header.php);
+<? include("inc/header.php");
 ?>
     <div class="container-narrow">
 
@@ -42,6 +42,6 @@
         </div>
       </div>
 
-
-<? require_once (inc/footer.php);
+</div>
+<? include("inc/footer.php");
 ?>
