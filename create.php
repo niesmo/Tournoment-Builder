@@ -9,15 +9,15 @@ if($_POST[submit]){
 <form action="#" method="POST">
   <fieldset>
     <legend>Create Tournament</legend>
-	<input name="name" type="text" placeholder="Tournament Name">
+	<input name="name" type="text" placeholder="Tournament Name"><br>
 	<select name="type">
 	  <option value="SINGLE">Single Elimination</option>
 	  <option value="DOUBLE">Double Elimination</option>
 	  <option value="ELO">Elo Ranking System</option>
 	  <option value="MTG">Tournament Inspired by MtG</option>
-	</select>
-	<textarea name="description" rows="3"></textarea>
-	<textarea name="rules" rows="3"></textarea>
+	</select><br>
+	<textarea name="description" rows="3"></textarea><br>
+	<textarea name="rules" rows="3"></textarea><br>
 	<input type="submit" name="submit" value="Creat Tournament" />
   </fieldset>
 </form>
