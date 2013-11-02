@@ -1,5 +1,6 @@
-
-<?require_once("inc/header.php");?>
+<?require_once("inc/header.php")
+require_once("conf/config.php");
+?>
       <div class="row-fluid">
         <div class="span12">
           <div class="hero-unit">
@@ -10,6 +11,9 @@
           <div class="row-fluid">
           
       <?php 
+      $list_of_tournaments = $db->select("Tournament","*","","","","9");
+      echo $test;
+      echo "test";
       for ($x=1; $x<=9; $x++)
       {
         if (($x%3)==0) {
