@@ -16,8 +16,8 @@ if($_POST[submit]){
 	  <option value="ELO">Elo Ranking System</option>
 	  <option value="MTG">Tournament Inspired by MtG</option>
 	</select><br>
-	<textarea name="description" rows="3"></textarea><br>
-	<textarea name="rules" rows="3"></textarea><br>
+	<textarea name="description" rows="3" placeholder="Description"></textarea><br>
+	<textarea name="rules" rows="3" placeholder="Rules"></textarea><br>
 	<input type="submit" name="submit" value="Creat Tournament" />
   </fieldset>
 </form>
