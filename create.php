@@ -3,7 +3,7 @@ require_once("conf/config.php");
 include("inc/header.php");
 if($_POST[submit]){
 	$db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
-		"'$_POST[name]', '$_POST[type]', 'NOW()', 'OPEN', '$_POST[description]', '$_POST[rules]'");
+		"'$_POST[name]', '$_POST[type]', 'date()', 'OPEN', '$_POST[description]', '$_POST[rules]'");
 }
 ?>
 <form action="#" method="POST">
