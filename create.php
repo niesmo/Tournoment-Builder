@@ -1,8 +1,8 @@
 <? include("inc/header.php");
 if($_POST[submit]){
 	print_r($_POST);
-	$con=mysqli_connect(":/media/sdp1/home/masterme120/private/mysql/socket", "root",
-		"1yy5u8Uwmy1go57h", "Tournament");
+	$con=mysqli_connect("localhost", "root", "1yy5u8Uwmy1go57h", "Tournament", false,
+	"/media/sdp1/home/masterme120/private/mysql/socket");
 	if(mysqli_connect_errno($con)) {
 		echo "Connection to MySQL database failed: " . mysqli_connect_error();
 	} else {
