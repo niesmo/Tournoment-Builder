@@ -1,5 +1,6 @@
 <?
 session_start();
+error_reporting(E_ALL);
 function __autoload($class)
 {
     require_once (__DIR__ . "/../classes/" . $class . "_class.php");
