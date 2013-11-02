@@ -1,4 +1,5 @@
-<?require_once("inc/header.php")?>
+<?require_once("conf/config.php");?>
+<?require_once("inc/header.php");?>
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
