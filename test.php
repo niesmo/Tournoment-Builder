@@ -1,4 +1,4 @@
-<?require_once("http://masterme120.chronos.feralhosting.com/hackathon/dev/inc/header.php")?>
+<?require_once("inc/header.php")?>
       <div class="row-fluid">
         <div class="span3">
           <div class="well sidebar-nav">
@@ -64,4 +64,4 @@
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
-<?require_once("http://masterme120.chronos.feralhosting.com/hackathon/dev/inc/footer.php")?>
+<?require_once("inc/footer.php")?>
