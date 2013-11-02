@@ -1,4 +1,5 @@
-<?require_once("inc/header.php")
+<?
+require_once("inc/header.php")
 require_once("conf/config.php");
 ?>
       <div class="row-fluid">
