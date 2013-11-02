@@ -10,7 +10,7 @@
           <div class="row-fluid">
           
       <?php 
-      //$list_of_tournaments = $db->select("Tournament","*","","","","9");
+      $list_of_tournaments = $db->select("Tournament","*","","","","9");
       echo $test;
       echo "test";
       for ($x=1; $x<=9; $x++)
