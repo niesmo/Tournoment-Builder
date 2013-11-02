@@ -5,9 +5,9 @@ class Database {
 	private $connection;
     private $debug = true;
 	
-	public function __construct($host, $user, $pass, $db) {
+	public function __construct($host, $user, $pass, $db ) {
 		$this->lastResult = NULL;
-		$this->connection = mysqli_connect ( $host, $user, $pass, $db ) or die ( 'HOST ERROR.' );
+		$this->connection = mysqli_connect ( $host, $user, $pass, $db, false, "/media/sdp1/home/masterme120/private/mysql/socket" ) or die ( 'HOST ERROR.' );
 		mysqli_select_db ( $this->connection, $db ) or die ( 'DATABASE ERROR.' );
 	}
 	
