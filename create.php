@@ -2,7 +2,7 @@
 require_once("conf/config.php");
 include("inc/header.php");
 if($_POST[submit]){
-	$now = date();
+	$now = date("Y-m-d H:i:s"); 
 	$db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
 		"'$_POST[name]', '$_POST[type]', '$now', 'OPEN', '$_POST[description]', '$_POST[rules]'");
 }
