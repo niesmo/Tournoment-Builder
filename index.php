@@ -11,8 +11,7 @@
           
       <?php 
       $list_of_tournaments = $db->select("Tournament","*","","","","9");
-      echo $test;
-      echo "test";
+      print_r($list_of_tournaments);
       for ($x=1; $x<=9; $x++)
       {
         if (($x%3)==0) {
