@@ -14,7 +14,7 @@
       print_r($list_of_tournaments);
       for ($x=0; $x<9; $x++)
       {
-        if (($x%3)==0) {
+        if ((($x+1)%3)==0) {
           echo "<div class='row-fluid'>";
         }
         echo "<div class='span4'>";
@@ -22,7 +22,7 @@
               echo "<p>Tournament Description: $list_of_tournaments[$x][Description] </p>";
               echo "<p><a class='btn' href='#'>View details &raquo;</a></p>";
         echo "</div>";
-        if (($x%3)==0) {
+        if ((($x+1)%3)==0) {
           echo "</div> <!--/row-->";
         }
       } 
