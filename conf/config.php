@@ -14,5 +14,7 @@ define ( DB_DB, "Tournament" );
 $db = new Database ( DB_HOST, DB_USER, DB_PASS, DB_DB );
 if (!$db->isConnected())
     die("DATABASE IS NOT CONNECTED");
-
+else{
+    echo "<h1>We are connected</h1>";
+}
 ?>
