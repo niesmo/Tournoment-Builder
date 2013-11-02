@@ -18,8 +18,8 @@
           echo "<div class=\"row-fluid\">\n";
         }
         echo "<div class=\"span4\">\n";
-        echo "<h2>Tournament: $x </h2>\n";
-        echo "<p>Tournament Description: $x </p>\n";
+        echo "<h2>Tournament: $list_of_tournaments[$x][Name] </h2>\n";
+        echo "<p>Tournament Description: $list_of_tournaments[$x][Description] </p>\n";
         echo "<p><a class=\"btn\" href=\"#\">View details &raquo;</a></p>\n";
         echo "</div>";
         if (($x%3)==0) {
