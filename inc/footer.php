@@ -1,7 +1,7 @@
       <hr>
 
       <footer>
-        <p>&copy; Company 2013</p>
+        <p>&copy; Tournament Builder: OSU Hack-a-thon 2013</p>
       </footer>
 
     </div><!--/.fluid-container-->
