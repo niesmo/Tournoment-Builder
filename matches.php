@@ -13,7 +13,6 @@ if(!isset($_GET["id"])) {
 				<th>Entrant 1</th>
 				<th>Entrant 2</th>
 				<th>Winner</th>
-				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,14 +28,12 @@ if(!isset($_GET["id"])) {
 				<td><button class="btn"><?echo $part_1['Name']?></button></td>
 				<td><button class="btn"><?echo $part_2['Name']?></button></td>
 				<td><i>Awaiting Results</i></td>
-				<td><button class="btn">Draw</button>
 			<?} else {?>
 				<td><?echo $part_1['Name']?></td>
 				<td><?echo $part_2['Name']?></td>
-				<td><?	if($match["Result"] == "FIRST") echo $part_1['Name'];
-						elseif($match["Result"] == "SECOND") echo $part_2['Name'];
-						elseif($match["Result"] == "TIE") echo "Draw";?></td>
-				<td></td>
+				<td><?if($match["Result"] == "FIRST") echo $part_1['Name'];
+				      elseif($match["Result"] == "SECOND") echo $part_2['Name'];?></td>
+				
 			<?}?>
 			</tr>
 	<?} // end foreach ?>
