@@ -13,21 +13,30 @@ if(!isset($_GET["id"])) {
 			<th>Entrant 1</th>
 			<th>Entrant 2</th>
 			<th>Winner</th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
-<? $matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
-		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2",
-		"MatchID");
-	foreach($matches as $match) {?>
+<? 	$matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
+	"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2",
+	"MatchID");
+foreach($matches as $match) {?>
 		<tr>
+		<?if($match["Result"] == "") { // match in progress	
+			<td><button class="btn"><?echo $match["EntryID1"]?></button></td>
+			<td><button class="btn"><?echo $match["EntryID2"]?></button></td>
+			<td><i>Awaiting Results</i></td>
+			<td><button class="btn">Draw</button>
+		} else {
 			<td><?echo $match["EntryID1"]?></td>
 			<td><?echo $match["EntryID2"]?></td>
 			<td><?	if($match["Result"] == "FIRST") echo $match["EntryID1"];
 					elseif($match["Result"] == "SECOND") echo $match["EntryID2"];
-					else echo "Draw";?></td>
+					elseif($match["Result"] == "TIE") echo "Draw";?></td>
+			<td></td>
+		}
 		</tr>
-	<?} // end foreach ?>
+<?} // end foreach ?>
 	</tbody>
 </table>
 <?} include("inc/footer.php"); ?>
