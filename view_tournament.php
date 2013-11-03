@@ -22,7 +22,7 @@ if(!isset($_GET['id'])) {
 	$num_participants = count($participants);
 
 	?>
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+<canvas id="myCanvas" width="100%" height="100%">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
@@ -32,9 +32,14 @@ var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
-ctx.moveTo(0,0);
-ctx.lineTo(200,100);
-ctx.stroke();
+ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
+ctx.font="12px Arial";
+ctx.fillText("Hello World",10,50);
+if(num_participants==4){
+	ctx.moveTo(0,0);
+	ctx.lineTo(200,100);
+	ctx.stroke();	
+}
 
 </script>
 <?
@@ -42,7 +47,7 @@ ctx.stroke();
 		echo "<h3>Current Participants:</h3>";
 
 		if($num_participants==4){
-
+			echo "<h3>4 Participants:</h3>";			
 		}
 		foreach($participants as $val){
 			echo "<li>";
