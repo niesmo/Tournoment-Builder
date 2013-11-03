@@ -27,6 +27,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
                 foreach($participants as $val){
                         echo "<li>";
                         echo $val['Name'];
+                        echo "<input class='btn btn-danger' type='submit' name='submit' value='Remove Player' />";
                         echo "</li>\n";
                 }        
         }
