@@ -11,10 +11,10 @@
           <div class="row-fluid">
           
       <?php 
-      $list_of_tournaments = $db->select("Tournament","*" , "Status ='OPEN'");
+      $list_of_tournaments = $db->select("Tournament","*" , "Status ='OPEN'" , "" , "" , "9");
    
       
-      for ($x=0; $x<9; $x++)
+      for ($x=0; $x<count($list_of_tournaments); $x++)
       {
 
         echo "<div class='span4'>\n";
