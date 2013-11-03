@@ -1,7 +1,7 @@
 <? include('../conf/config.php');
 global $db;
 if(isset($_GET['MatchID']) && isset($_GET['id'])) {
-	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'", "", "", "1");
+	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'")[0];
 	print_r($match);
 	$round = $match['Round']+1;
 	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]");
