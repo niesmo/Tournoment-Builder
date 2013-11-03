@@ -44,7 +44,8 @@ var player_width = 150;
 
 //build structure
 function drawLines(num_row,column){
-	var start_height = player_height * (column/2);
+	var start_height = player_height * (column/2) + (player_height * (i+.5);
+	
 	if(num_row==1){
 		ctx.fillText("Winner",player_width * column -150,start_height);
 		ctx.moveTo(player_width * column-150, start_height);
@@ -57,6 +58,7 @@ function drawLines(num_row,column){
 			
 			ctx.moveTo(player_width * column-150,start_height + (player_height * i) +5);
 			ctx.lineTo(player_width * (column+1)-150,start_height + (player_height * i)+5);
+			//ctx.lineTo(player_width * (column+2)-150,start_height + (player_height * (i+.5)));
 			ctx.stroke();
 			//diaganol lines
 			if (i%2==0) {
