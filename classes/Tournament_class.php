@@ -31,7 +31,7 @@ class Tournament{
 				$numberOfPartsNeeded = pow(2,ceil(log(count($participants) , 2)));
 				$count = ($numberOfPartsNeeded-1);
 				for($i=($numberOfPartsNeeded-1);$i>=0;$i--){
-					console.log($count);
+					console.log("$count");
 					if($i > count($participants)-1){
 						$this->db->insert("`Match`" , "EntryID1, EntryID2, Bye, Result, Round" , $participants[$count--]['EntryID'] . " , -1 , 1 , 'FIRST' , 0");
 					}
