@@ -1,3 +1,7 @@
+function removeParticipant(part_id){
+	alert(part_id);	
+}
+
 function submitResult(m_id, res){
     	$.ajax({
 		url:'ajax/submit_match_result.php',
