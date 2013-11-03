@@ -39,7 +39,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 }
 ?>
 
-<?if($result[MaxPlayer] < count($participants)){?>
+<?if($result['MaxPlayer'] < count($participants)){?>
 <form action="register.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Register for this tournament</h2>
