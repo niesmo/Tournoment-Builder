@@ -72,7 +72,7 @@ function drawLines(num_row,column){
 			ctx.stroke();
 			//diaganol lines
 			if (i%2==0) {
-				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i+.5)));
+				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i+1.5)));
 				ctx.stroke();	
 			}else{
 				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i-.5)));
