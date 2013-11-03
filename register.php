@@ -21,6 +21,9 @@ if(!isset($_GET[id])) {
 	print_r($participants);
 
 	echo "<h3>Current Participants:</h3>";
+	for each($participants){
+		echo $participants[Name];
+	}
 }
 ?>
 
