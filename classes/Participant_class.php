@@ -9,5 +9,9 @@ class Participant{
                 return $this->db->select("Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.EntryID = $entry_id")[0];
         }
         
+        public function removeParticipant($participant_id){
+                return $this->db->delete("Participant",  "ParticipantID = $particpant");
+        }
+        
 }
 ?>
