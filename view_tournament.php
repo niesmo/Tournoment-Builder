@@ -45,8 +45,9 @@ var player_width = 150;
 
 //build structure
 function drawLines(num_row,column){
+	var start_height = player_height * column;
 	if(num_row==1){
-		ctx.moveTo(player_width * column,player_height * num_row * column);
+		ctx.moveTo(player_width * column, start_height +(player_height * num_row * column);
 		ctx.lineTo(player_width * (column +1),player_height * num_row*column);
 		ctx.stroke();
 	}
@@ -56,9 +57,12 @@ function drawLines(num_row,column){
 			ctx.lineTo(player_width * column+1,player_height * i+5);
 			ctx.stroke();
 			if (num_row%2==0) {
-				ctx.lineTo(player_width * column+1,player_height * (i-.5));
+				ctx.lineTo(player_width * column+2,player_height * (i+.5));
 				ctx.stroke();	
-			};
+			}else{
+				ctx.lineTo(player_width * column+2,player_height * (i-.5));
+				ctx.stroke();	
+			}
 		}
 		drawLines(num_row/2,column+2);
 	}
