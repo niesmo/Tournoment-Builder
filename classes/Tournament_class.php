@@ -15,7 +15,6 @@ class Tournament{
 	        	return -1;
 	}
 	
-	
 	public function getParticipants($tournament_id){
 		return $this->db->select("Entry as e, Participant as p" , "*" , "e.TournamentID = $tournament_id AND e.ParticipantID = p.ParticipantID");
 	}
