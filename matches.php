@@ -19,7 +19,7 @@ includeHeader("Administration Panel");?>
 		</thead>
 		<tbody>
 	<? 	$matches = $db->select("`Match` as m , Entry as e, Participant as p", "m.MatchID, EntryID1, EntryID2, Result, p.Name",
-		"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) AND e.TournamentID = '$_GET[id]'",
+		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = '$_GET[id]'",
 		"MatchID");
 		print_r($matches);
 		

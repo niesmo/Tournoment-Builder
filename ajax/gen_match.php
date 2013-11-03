@@ -18,11 +18,11 @@ if(isset($_POST['MatchID']) && isset($_POST['id'])) {
 			$db->update("Tournament", "Status='CLOSE', Winner='$winner'", "TournamentID='$_POST[id]'");
 		} else {
 			$first = $db->select("`Match` as m , Entry as e", "EntryID1",
-			"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) 
+			"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) 
 			AND e.TournamentID = '$_POST[id]' AND m.Round = $round-1 AND
 			m.Result = 'FIRST'", "MatchID");
 			$second = $db->select("`Match` as m , Entry as e", "EntryID2",
-			"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) 
+			"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) 
 			AND e.TournamentID = '$_POST[id]' AND m.Round = $round-1 AND
 			m.Result = 'SECOND'", "MatchID");
 			gen_matches($round, merge($first, $second), $db );
