@@ -56,7 +56,7 @@ else
 	<form action="edit_tournament.php" method="POST">
 	  <fieldset>
 	    <h2 class="form-signin-heading"><? echo $result['Name']; ?></h2>
-	           <input type="hidden" name="id" value="<? echo $t_id; ?>"/>
+	        <input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	        <input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
 	        <select name="type">
 	          <option value="SINGLE">Single Elimination</option>
@@ -65,8 +65,8 @@ else
 	          <option value="MTG">Tournament Inspired by MtG</option>
 	        </select><br>
 	        <input name="max_player" type="number" value="<?=$result['MaxPlayer']?>" placeholder="max number of player"/><br>
-	        <textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
-	        <textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
+	        <textarea class="input-block-level" name="description" rows="3" value="<?=$result['Description']?>" placeholder="<? echo $result['Description'] ?>"></textarea><br>
+	        <textarea class="input-block-level" name="rules" rows="3" value="<?=$result['Rules']?>" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
 	        <input class="btn btn-primary btn-large" type="submit" name="submit" value="Edit Tournament Details" />
 	  </fieldset>
 	</form>
