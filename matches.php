@@ -20,8 +20,8 @@ if(!isset($_GET["id"])) {
 		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2");
 	foreach($matches as $match) {?>
 		<tr>
-			<td><?echo $match[0]?></td>
-			<td><?echo $match[1]?></td>
+			<td><?echo $match["EntryID1"]?></td>
+			<td><?echo $match["EntryID2"]?></td>
 			<td><?	if($match["Result"] == "FIRST") echo $match[0];
 					elseif($match["Result"] == "SECOND") echo $match[1];
 					else echo "Draw";?></td>
