@@ -4,7 +4,7 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]");
 	$initialEntries = merge($initialEntries, []);
 	if($_GET['round'] == '0') { // first round: gen from Entry
-		gen_matches(0, $initialEntries);
+		gen_matches(0, $initialEntries , $db);
 	} else {
 		if($db->select("`Match` as m , Entry as e", "COUNT(*)",
 		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
@@ -21,7 +21,7 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
 				e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND
 				m.Result = 'SECOND'", "MatchID");
-				gen_matches($_GET['round'], merge($first, $second) );
+				gen_matches($_GET['round'], merge($first, $second), $db );
 			}
 		}
 	}
@@ -35,9 +35,12 @@ function merge($a, $b) {
 	return $out;
 }
 
-function gen_matches($round, $entryIDs) {
+function gen_matches($round, $entryIDs , $dbTemp) {
 	
 	print_r($entryIDs);
+	if($dbTemp->isConnected()){
+		echo "<h1>Connected</h1>";
+	}
 	for($i=0;$i<count($entryIDs)/2;$i++) {
 		$db->insert("`Match`", "EntryID1, EntryID2, Round, Order",
 		"'".$entryIDs[$i*2]."', '".$entryIDs[$i*2+1]."', '$round', '$i'");
