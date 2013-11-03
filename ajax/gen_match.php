@@ -1,16 +1,6 @@
 <? include('../conf/config.php');
 if(isset($_GET['round']) && isset($_GET['id'])) {
-	$initialEntries = $db->select("Entry", "COUNT(*)", "TournamentID=$_GET[id]")[0][0];
-	if($_GET['round'] == '0') { // first round: gen from Entry
-		gen_matches(0, merge($initialEntries, []));
-	} else {
-		if($db->select("`Match` as m , Entry as e", "COUNT(*)",
-		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
-		e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND 
-		m.Result != 'null'", "MatchID")[0][0] == 0) { // all results in from previous round
-
-		}
-	}
+	echo "found data from request";
 } else echo "round and/or id not found in request!";
 
 private function merge($a, $b) {
