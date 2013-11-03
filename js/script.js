@@ -4,6 +4,7 @@ function progressTournament(t_id){
 		type: 'POST',
 		data: {TournamentID :t_id },
 		success: function(data){
+			location.reload(true);
 		/*	$.ajax({
 				url:'ajax/gen_match.php',
 				type: 'POST',
