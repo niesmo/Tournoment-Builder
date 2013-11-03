@@ -1,6 +1,6 @@
 <? include("conf/config.php");
 include("inc/header.php");
-if(!isset($_GET[id])) {
+if(!isset($_GET['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
 	if($_POST[submit]){
@@ -14,7 +14,7 @@ if(!isset($_GET[id])) {
 	$result = $db->select("Tournament", "Name, Description, Rules",
 		"TournamentID = $_GET[id]")[0]; // get name, description, and rules
 	echo "<h1>Register for " . $result['Name'] . "</h1>"; // name
-	echo "<p>" . $result[Description] . "</p>"; // description
+	echo "<p>" . $result['Description'] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
 
 	$participants =$tournament->getParticipants($_GET[id]);
@@ -23,7 +23,7 @@ if(!isset($_GET[id])) {
 	echo "<h3>Current Participants:</h3><ol>";
 	foreach($participants as $val){
 		echo "<li>";
-		echo $val['Name'];
+		echo $val[Name];
 		echo "</li>\n";
 	}
 	echo "</ol>";
