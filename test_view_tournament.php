@@ -28,7 +28,7 @@ var num_buckets = Math.pow(2,(Math.ceil(Math.log(num_participants)/Math.LN2)));
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
-ctx.canvas.height = window.innerHeight;
+ctx.canvas.height = num_buckets*200;
 
 ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",window.innerWidth/2,50);
