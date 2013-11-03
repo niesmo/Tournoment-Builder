@@ -3,7 +3,8 @@ include("inc/header.php");
 if(!isset($_GET['id']) && !isset($_POST[id])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	$t_id = isset($_GET[id])?$_GET[id]?$_POST[id];
+	//$t_id = isset($_GET[id])?$_GET[id]?$_POST[id];
+	$t_id = 10;
 	if(isset($_POST['submit'])){
 		echo "In the submit if<br>";
 		$db->insert("Participant", "Name", "'$_POST[name]'");
@@ -19,7 +20,7 @@ if(!isset($_GET['id']) && !isset($_POST[id])) {
 	echo "<p>" . $result['Description'] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
-	$participants =$tournament->getParticipants($_GET['id']);
+	$participants =$tournament->getParticipants($t_id);
 	// print_r($participants);
 
 	echo "<h3>Current Participants:</h3><ol>";
