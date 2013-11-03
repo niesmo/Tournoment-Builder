@@ -25,12 +25,7 @@ foreach($matches as $match) {print_r $match["Result"]?>
 		<?if($match["Result"] == "") { // match in progress	
 
 		} else {
-			<td><?echo $match["EntryID1"]?></td>
-			<td><?echo $match["EntryID2"]?></td>
-			<td><?	if($match["Result"] == "FIRST") echo $match["EntryID1"];
-					elseif($match["Result"] == "SECOND") echo $match["EntryID2"];
-					elseif($match["Result"] == "TIE") echo "Draw";?></td>
-			<td></td>
+
 		}
 		</tr>
 <?} // end foreach ?>
