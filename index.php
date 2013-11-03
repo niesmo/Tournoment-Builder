@@ -14,6 +14,9 @@
       echo "<pre>";
       print_r($list_of_tournaments);
       echo "</pre>";
+      foreach ($list_of_tournaments as $key => $value){
+            echo "TEST $value";     
+      }
       echo "<h1>TEST ".$list_of_tournaments[0][1]."</h1>";
       for ($x=0; $x<9; $x++)
       {
