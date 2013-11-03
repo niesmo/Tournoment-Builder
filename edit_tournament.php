@@ -53,15 +53,15 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
 	<select name="type">
-	  <option value="SINGLE" <? ($result['Type']='SINGLE')?echo 'selected':; ?>>Single Elimination</option>
-	  <option value="DOUBLE" <? ($result['Type']='DOUBLE')?echo 'selected':; ?>>Double Elimination</option>
-	  <option value="ELO" <? ($result['Type']='ELO')?echo 'selected':; ?>>Elo Ranking System</option>
-	  <option value="MTG" <? ($result['Type']='MTG')?echo 'selected':; ?>>Tournament Inspired by MtG</option>
+	  <option value="SINGLE" <? ($result['Type']='SINGLE')?echo 'selected':""; ?>>Single Elimination</option>
+	  <option value="DOUBLE" <? ($result['Type']='DOUBLE')?echo 'selected':""; ?>>Double Elimination</option>
+	  <option value="ELO" <? ($result['Type']='ELO')?echo 'selected':""; ?>>Elo Ranking System</option>
+	  <option value="MTG" <? ($result['Type']='MTG')?echo 'selected':""; ?>>Tournament Inspired by MtG</option>
 	</select>
 	<select name="status">
-	  <option value="OPEN" <? ($result['Status']='OPEN')?echo 'selected':; ?>>Open</option>
-	  <option value="INPROGRESS" <? ($result['Status']='INPROGRESS')?echo 'selected':; ?>>In-Progress</option>
-	  <option value="ClOSE" <? ($result['Status']='CLOSE')?echo 'selected':; ?>>Closed</option>
+	  <option value="OPEN" <? ($result['Status']='OPEN')?echo 'selected':""; ?>>Open</option>
+	  <option value="INPROGRESS" <? ($result['Status']='INPROGRESS')?echo 'selected':""; ?>>In-Progress</option>
+	  <option value="ClOSE" <? ($result['Status']='CLOSE')?echo 'selected':""; ?>>Closed</option>
 	</select>
 	<br>
 	<textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
