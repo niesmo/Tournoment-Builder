@@ -12,6 +12,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$t_id, $id");
 	}?>
+	<div class="container">
       <div class="row-fluid">
         <div class="span6">
 	<?
@@ -53,7 +54,7 @@ if($result['MaxPlayer'] > count($participants)){?>
 <?}else{
 	echo "<p>This Tournament is full!!</p>";
 }?>
-
+</div>
 </div>
 </div>
 <?require_once("inc/footer.php")?>
