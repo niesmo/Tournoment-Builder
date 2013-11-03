@@ -1,8 +1,8 @@
 <?
 require_once("conf/config.php");
 include("inc/header.php");
-if($_POST[submit]){
-	$tournament->newTournament($_POST[name], $_POST[type], $_POST[description], $_POST[rules]);
+if($_POST['submit']){
+	$tournament->newTournament($_POST['name'], $_POST['type'], $_POST['description'], $_POST['rules']);
 }
 ?>
 <div class="container">
