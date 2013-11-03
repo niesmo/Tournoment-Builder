@@ -60,7 +60,7 @@ class Tournament{
         		echo  "N : " . $n . "\n";
           		$winner = $this->getWinners($t_id, $round);
         		for($i = 0;$i<$n;$i++){
-        			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winners[$i++]['EntryID'] . " , ". $winners[$i]['EntryID'] . " , NULL, $round+1 , -1");
+        			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winner[$i++]['EntryID'] . " , ". $winner[$i]['EntryID'] . " , NULL, $round+1 , -1");
         		}
         	}
         	
