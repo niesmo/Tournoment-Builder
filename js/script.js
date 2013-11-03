@@ -28,8 +28,9 @@ function removeParticipant(part_id ){
 				location.reload(true);
 			}
 			else{
-				alert(data);
-				alert("Something went wrong!!");
+				location.reload(true);
+				//alert(data);
+				//alert("Something went wrong!!");
 			}
 			
 		}
@@ -50,8 +51,9 @@ function submitResult(m_id, res, t_id){
 				location.reload(true);
 			}
 			else{
-				alert(data);
-				alert("Something went wrong!!");
+				location.reload(true);
+				//alert(data);
+				//alert("Something went wrong!!");
 			}
 			
 		}
