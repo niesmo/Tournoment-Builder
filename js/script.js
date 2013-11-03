@@ -43,6 +43,9 @@ function submitResult(m_id, res, t_id){
 		data: {MatchID :m_id ,result : res },
 		success: function(data){
 			//alert(data);
+			if(data == "WINNER"){
+				location.reload(true);
+			}
 			if(data == "SUCCESS"){
 				location.reload(true);
 			}
