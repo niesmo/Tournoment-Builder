@@ -32,7 +32,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 		}	
 	}
 	else{
-		echo "<h3>No Participants</h3>"
+		echo "<h3>No Participants</h3>";
 	}
 	
 	echo "</ol></div><div class='span6'>";
