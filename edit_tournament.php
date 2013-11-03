@@ -53,7 +53,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
   <fieldset>
     <h2 class="form-signin-heading"><? echo $result['Name']; ?></h2>
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
-	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
+	<input name="tournament_name" type="text" value="<? echo $result['Name']; ?>"/>
 	<select name="type">
 	  <option value="SINGLE" <? if($result['Type']=='SINGLE'){echo 'selected';} ?>>Single Elimination</option>
 	  <option value="DOUBLE" <? if($result['Type']=='DOUBLE'){echo 'selected';} ?>>Double Elimination</option>
@@ -66,8 +66,8 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	  <option value="ClOSE" <? if($result['Status']=='CLOSE'){echo 'selected';} ?>>Closed</option>
 	</select>
 	<br>
-	<textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
-	<textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
+	<textarea class="input-block-level" name="description" rows="3" value="<? echo $result['Description'] ?>"></textarea><br>
+	<textarea class="input-block-level" name="rules" rows="3" value="<? echo $result['Rules'] ?>"></textarea><br>
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Edit Tournament Details" />
   </fieldset>
 </form>
