@@ -2,7 +2,7 @@
 require_once("conf/config.php");
 includeHeader("Create a Tournament");
 if(isset($_POST['submit'])){
-	$id = $tournament->newTournament($_POST['name'], $_POST['type'], $_POST['description'], $_POST['rules']);
+	$id = $tournament->newTournament($_POST['name'], $_POST['type'], $_POST['description'], $_POST['rules'] , $_POST['maxPlayer']);
 	if($id == -1){
 		$msg = "<div class='alert alert-error'><p>Something went wrong! Try Again</p></div>";
 	}
