@@ -29,4 +29,4 @@ if(!isset($_GET[id])) {
 	<?} // end foreach ?>
 	</tbody>
 </table>
-<? include("inc/footer.php"); ?>
+<?} include("inc/footer.php"); ?>
