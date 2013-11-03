@@ -17,6 +17,8 @@ class Participant{
         }       
         
         public function removeParticipant($participant_id){
+                //remove from the Entry table too
+                $this->db->delete("Entry" , "ParticipantID = $participant_id");
                 return $this->db->delete("Participant",  "ParticipantID = $participant_id");
         }
         
