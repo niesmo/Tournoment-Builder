@@ -27,8 +27,11 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
 
+var num_participants = <? echo $num_participants; ?>;
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
+ctx.canvas.width  = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
 ctx.moveTo(0,0);
 ctx.lineTo(200,100);
 ctx.stroke();
@@ -38,6 +41,9 @@ ctx.stroke();
 	if($num_participants>0){
 		echo "<h3>Current Participants:</h3>";
 
+		if($num_participants==4){
+
+		}
 		foreach($participants as $val){
 			echo "<li>";
 			echo $val['Name'];
