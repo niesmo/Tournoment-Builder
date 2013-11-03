@@ -48,12 +48,13 @@ function cmp($a, $b) {
 function gen_matches($round, $entryIDs, $db) {
 	echo "gen_matches called <br>";
 	print_r($entryIDs);
-	/*for($i=0;$i<count($entryIDs)/2;$i++) {
-		$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
-		$entryIDs[$i*2].", ".$entryIDs[$i*2+1].", $round, $i");
-		if($entryIDs[$i*2+1] == -1) { // set result for bye
-			$db->update("`Match`", "Result='FIRST'", "MatchID=".$db->lastInsertedId());
-		}
-	}*/
+	for($i=0;$i<count($entryIDs)/2;$i++) {
+		echo $i;
+		//$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
+		//$entryIDs[$i*2].", ".$entryIDs[$i*2+1].", $round, $i");
+		//if($entryIDs[$i*2+1] == -1) { // set result for bye
+		//	$db->update("`Match`", "Result='FIRST'", "MatchID=".$db->lastInsertedId());
+		//}
+	}
 }
 ?>
