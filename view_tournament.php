@@ -17,10 +17,30 @@ if(!isset($_GET['id'])) {
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
 	$participants =$tournament->getParticipants($t_id);
-	$matches =$tournament->getMatches($t_id);
-	print_r($participants);
-	if(count($participants)>0){
-		echo "<h3>Current Participants:</h3><ol>";
+	//$matches =$tournament->getMatches($t_id);
+	//print_r($participants);
+	$num_participants = count($participants);
+
+	?>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+
+</script>
+<?
+	if($num_participants>0){
+		echo "<h3>Current Participants:</h3>";
+
+		if($num_participants>){
+
+		}
 		foreach($participants as $val){
 			echo "<li>";
 			echo $val['Name'];
@@ -30,8 +50,6 @@ if(!isset($_GET['id'])) {
 	else{
 		echo "<h3>No Participants</h3>";
 	}
-	
-	echo "</ol></div><div class='span6'>";
 }
 ?>
 
