@@ -23,13 +23,18 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 
 	$participants =$tournament->getParticipants($t_id);
 	// print_r($participants);
-
-	echo "<h3>Current Participants:</h3><ol>";
-	foreach($participants as $val){
-		echo "<li>";
-		echo $val['Name'];
-		echo "</li>\n";
+	if(isset($participants)){
+		echo "<h3>Current Participants:</h3><ol>";
+		foreach($participants as $val){
+			echo "<li>";
+			echo $val['Name'];
+			echo "</li>\n";
+		}	
 	}
+	else{
+		echo "<h3>No Participants</h3>"
+	}
+	
 	echo "</ol></div><div class='span6'>";
 }
 ?>
