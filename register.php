@@ -3,7 +3,7 @@ include("inc/header.php");
 if(!isset($_GET['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	if($_POST[submit]){
+	if($_POST['submit']){
 		$db->insert("Participant", "Name", "'$_POST[name]'");
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$_GET[id], $id");
@@ -13,7 +13,7 @@ if(!isset($_GET['id'])) {
 	<?
 	$result = $db->select("Tournament", "Name, Description, Rules",
 		"TournamentID = $_GET[id]")[0]; // get name, description, and rules
-	echo "<h1>Register for " . $result['Name'] . "</h1>"; // name
+	echo "<h1>" . $result['Name'] . "</h1>"; // name
 	echo "<p>" . $result['Description'] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
