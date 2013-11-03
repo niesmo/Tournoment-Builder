@@ -38,9 +38,9 @@ includeHeader("Administration Panel");?>
 	<?} // end foreach ?>
 		</tbody>
 	</table>
-<?} elseif($result["Status"] == "OPEN") {?>
+<?//} elseif($result["Status"] == "OPEN") {?>
 	<h1>Edit Options, Close Registration</h1>
-<?} else {?>
+<?//} else {?>
 	<h3>Tournament has ended</h3>
 	<h4>Winner: </h4
 <?}?>
