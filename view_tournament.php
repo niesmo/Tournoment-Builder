@@ -32,9 +32,9 @@ var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
-ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
+
 ctx.font="40px Arial";
-ctx.fillText("<? echo $result['Name']; ?>",10,50);
+ctx.fillText("<? echo $result['Name']; ?>",window.innerWidth/2,50);
 
 var players = new Array();
 var player_height = ctx.canvas.height/4;
@@ -45,10 +45,18 @@ var player_width = ctx.canvas.width/3;
 	}?>
 
 	for(var j=1;j<=num_participants; j++) {
-		ctx.fillText(players[j],10,player_height * j);
-		ctx.moveTo(player_width,player_height * j);
-		ctx.lineTo(player_width * (j+1),player_height * (j+1));
-		ctx.stroke();
+		ctx.fillText(players[j-1],10,player_height * j);
+		if(j%2==0){
+			ctx.moveTo(player_width,player_height * j);
+			ctx.lineTo(player_width * (2),player_height * (j+1));
+			ctx.stroke();	
+		}
+		else{
+			ctx.moveTo(player_width,player_height * j);
+			ctx.lineTo(player_width * (2),player_height * (j-1));
+			ctx.stroke();		
+		}
+		
 	}
 
 </script>
