@@ -19,5 +19,10 @@ class Tournament{
 	public function getParticipants($tournament_id){
 		return $this->db->select("Entry as e, Participant as p" , "*" , "e.TournamentID = $tournament_id AND e.ParticipantID = p.ParticipantID");
 	}
+	
+	public function getMatches($tournament_id, $field="*") {
+		return $this->db->select("`Match` as m , Entry as e", $field,
+		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
+		e.TournamentID = 'tournament_id'", "MatchID");
 }
 ?>
