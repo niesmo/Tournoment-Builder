@@ -1,3 +1,4 @@
 <?require_once("../conf/config.php");
-print_r($_POST);
+if(isset($_POST['TournamentID']))
+  $tournament->closeRegistration($_POST['TournamentID']);
 ?>
