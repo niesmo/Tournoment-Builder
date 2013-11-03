@@ -36,9 +36,14 @@ ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
 ctx.font="12px Arial";
 ctx.fillText("Hello World",10,50);
 if(num_participants==4){
-	ctx.moveTo(0,0);
-	ctx.lineTo(200,100);
-	ctx.stroke();	
+	player_height = ctx.canvas.height/4;
+	player_width = ctx.canvas.width/3;
+	for(var i = 0;i<4;i++){
+	ctx.moveTo(player_width * i,player_height * i);
+	ctx.lineTo(player_width * (i+1),player_height * (i+1));
+	ctx.stroke();		
+	}
+	
 }
 
 </script>
