@@ -1,5 +1,6 @@
 <? include('../conf/config.php');
 global $db;
+global $Participant;
 if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'")[0];
 	print_r($match);
@@ -11,7 +12,7 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	AND e.TournamentID = '$_GET[id]' AND m.Round = $round-1 AND 
 	m.Result IS NULL")[0]['COUNT(*)'] == 0) { // all results in from previous round
 		if($round >= ceil(log(count($initialEntries), 2))) {// final round
-			$lastMatch = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
+			$lastMatch = $db->select("`Match` as m , Entry as e", "m.EntryID1, m.EntryID2, m.Result",
 				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
 				e.TournamentID = '$_GET[id]' AND m.Round = '$round'");
 			$winnerID = $lastMatch[$lastMatch['Result'] == 'FIRST' ? 'EntryID1' : 'EntryID2'];
