@@ -3,8 +3,8 @@ include("inc/header.php");
 if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	//if(isset($_GET['id'])){$t_id=$_GET[id]}
-	$t_id =isset($_GET[id])?$_GET[id];?$_POST[id];
+
+	$t_id = (isset($_GET[id]))?$_GET[id]:$_POST[id];
 
 	if(isset($_POST['submit'])){
 		echo "In the submit if<br>";
