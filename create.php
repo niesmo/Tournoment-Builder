@@ -10,7 +10,7 @@ if($_POST[submit]){
         <div class="span6">
 <form action="#" method="POST" class="form-signin">
   <fieldset>
-    <h2 class="form-signin-heading">Create Tournament</h2>
+    <h2 class="form-signin-heading">Create a tournament</h2>
 	<input class="input-block-level" name="name" type="text" placeholder="Tournament Name"><br>
 	<select name="type">
 	  <option value="SINGLE">Single Elimination</option>
@@ -20,7 +20,7 @@ if($_POST[submit]){
 	</select><br>
 	<textarea class="input-block-level" name="description" rows="3" placeholder="Description"></textarea><br>
 	<textarea class="input-block-level" name="rules" rows="3" placeholder="Rules"></textarea><br>
-	<input type="submit" name="submit" value="Create Tournament" />
+	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Create Tournament" />
   </fieldset>
 </form>
 </div>
