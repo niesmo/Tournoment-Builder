@@ -58,8 +58,8 @@ function drawLines(num_row,column){
 		for(var i=0;i<num_row;i++){
 			var row_height = start_height + (player_height * column *i) +5;
 
-			ctx.moveTo(player_width * column-150,row_height;
-			ctx.lineTo(player_width * (column+1)-150,row_height;
+			ctx.moveTo(player_width * column-150,row_height);
+			ctx.lineTo(player_width * (column+1)-150,row_height);
 			ctx.fillText(players[i*column],player_width * column-150,row_height);	
 
 			//ctx.lineTo(player_width * (column+2)-150,start_height + (player_height * (i+.5)));
