@@ -38,7 +38,7 @@ class Database {
 	
 	public function insert($tableName, $columns, $values, $where = "") {
 		$q = "INSERT INTO $tableName ($columns) VALUES ($values)";
-		echo $q;
+		//echo $q;
 		if ($where != "")
 			$q .= "WHERE $where";
 		$this->query ( $q );
@@ -48,7 +48,7 @@ class Database {
     public function update($tableName, $set, $where="")
 	{
 		$q = "UPDATE $tableName SET $set WHERE $where";
-		echo $q . "<br />";
+		//echo $q . "<br />";
 		$this->query ( $q );
 		return mysqli_affected_rows ( $this->connection );
 	}
