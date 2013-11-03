@@ -15,7 +15,7 @@ if(!isset($_GET['id'])) {
 	$num_participants = count($participants);
 }
 	?>
-<canvas id="myCanvas" width="100%" height="100%">
+<canvas id="myCanvas" width="1000" height="1000">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
