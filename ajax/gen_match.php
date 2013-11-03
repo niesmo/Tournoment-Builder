@@ -29,8 +29,10 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 
 function merge($a, $b) {
 	$out = [];
-	foreach($a as $array) foreach($array as $key => $value)	$out[] = $value;
-	foreach($b as $array) foreach($array as $key => $value)	$out[] = $value;
+	if($a != [])
+		foreach($a as $array) foreach($array as $key => $value)	$out[] = $value;
+	if($b != [])
+		foreach($b as $array) foreach($array as $key => $value)	$out[] = $value;
 	sort($out);
 	return $out;
 }
