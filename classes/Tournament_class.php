@@ -48,7 +48,7 @@ class Tournament{
         public function submitMatch($matchID, $result){
         	$t_id = $this->getTournamentID($matchID);
         	//Adding the result
-        	$db->update("`Match`", "Result = '$result'", " MatchID = $matchID");
+        	$this->db->update("`Match`", "Result = '$result'", " MatchID = $matchID");
         	$matchLeft = $this->matchesLeft($t_id);
         	if(count($matchLeft) == 0){
         		$round = $this->getRound($t_id);
