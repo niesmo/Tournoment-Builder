@@ -6,10 +6,10 @@ class Tournament{
 		$this->db = $db;
 	}
 	
-	public function newTournament($name, $type, $description, $rules){
+	public function newTournament($name, $type, $description, $rules, $maxPlayer){
 		$now = date("Y-m-d H:i:s"); 
-	        if($this->db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
-	                "'$name', '$type', '$now', 'OPEN', '$description', '$rules'") == 1)
+	        if($this->db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules, MaxPlayer",
+	                "'$name', '$type', '$now', 'OPEN', '$description', '$rules' , $maxPlayer") == 1)
 	        	return $this->db->lastInsertedId();
 	        else
 	        	return -1;
