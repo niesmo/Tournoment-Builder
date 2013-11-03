@@ -44,7 +44,7 @@ var player_width = 150;
 
 //build structure
 function drawLines(num_row,column){
-	var start_height = player_height * (column/2) + (player_height * (i+.5);
+	var start_height = player_height * (column/2) + (player_height * (column+.5));
 	
 	if(num_row==1){
 		ctx.fillText("Winner",player_width * column -150,start_height);
