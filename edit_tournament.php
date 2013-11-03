@@ -23,7 +23,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 
 	$participants =$tournament->getParticipants($t_id);
 	// print_r($participants);
-	if(length($participants)>0){
+	if(count($participants)>0){
 		echo "<h3>Current Participants:</h3><ol>";
 		foreach($participants as $val){
 			echo "<li>";
