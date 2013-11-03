@@ -96,6 +96,7 @@ class Database {
 	
 	public function lastInsertedId() {
 		echo "We are here in the function";
+		echo "HERE " . $coneection->insert_id . "<br>";
 		echo mysqli_insert_id ($connection);
 		return mysqli_insert_id ($connection);
 		//return $connection.insert_id;
