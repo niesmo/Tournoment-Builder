@@ -18,11 +18,11 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 				$db->update("Tournament", "Status='CLOSE'", "TournamentID='$_GET[id]'");
 			else {
 				$first = $db->select("`Match` as m , Entry as e", "EntryID1",
-				"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR e.EntryID2 = -1)) 
+				"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) 
 				AND e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND
 				m.Result = 'FIRST'", "MatchID");
 				$second = $db->select("`Match` as m , Entry as e", "EntryID2",
-				"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR e.EntryID2 = -1)) 
+				"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) 
 				AND e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND
 				m.Result = 'SECOND'", "MatchID");
 				gen_matches($_GET['round'], merge($first, $second), $db );
@@ -49,6 +49,9 @@ function gen_matches($round, $entryIDs, $db) {
 	for($i=0;$i<count($entryIDs)/2;$i++) {
 		$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
 		$entryIDs[$i*2].", ".$entryIDs[$i*2+1].", $round, $i");
+		if($entryIDs[$i*2+1] == -1) { // set result for bye
+			$db->update("`Match`", "Result='FIRST'", "MatchID=".db->lastInsertedId());
+		}
 	}
 }
 ?>
