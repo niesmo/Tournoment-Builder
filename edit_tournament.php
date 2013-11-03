@@ -26,15 +26,15 @@ else
 				echo "<h3>Current Participants:</h3><table>";
 				$counter = 1;
 				foreach($participants as $val){
-					
-					echo "<tr><td>".$counter++.". </td><td>$val['Name']</td><td><i class='icon-remove'></i></td></tr></table>";
-				}        
+					echo "<tr><td>". ($counter+=1) .". </td><td>".$val['Name']."</td><td><i class='icon-remove'></i></td></tr>";
+				}  
+				echo "</table>";				
 		}
 		else{
 				echo "<h3>No Participants</h3>";
 		}
 
-		echo "</table>";
+		
 	</div><div class='span6'>";
 }
 ?>
