@@ -62,7 +62,7 @@ class Tournament{
         			$this->db->update("Tournament" , "Status = 'CLOSE'" , "TournamentID = $t_id");
         			$winnerInfo = $this->db->select("Entry as e, Participant as p" , "p.Name" , "e.EntryID = ".$winner[0][EntryID]." AND e.ParticipantID = p.Participant");
         			print_r($winnerInfo);
-        			$this->db->update("Tournament" , "Winnder = ".$winnerInfo[0][Name] , "TournamentID = $t_id");
+        			$this->db->update("Tournament" , "Winner = ".$winnerInfo[0][Name] , "TournamentID = $t_id");
         		}
           		print_r($winner);
           		for($i = 0;$i<$n;$i++){
