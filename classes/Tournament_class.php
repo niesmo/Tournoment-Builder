@@ -53,7 +53,7 @@ class Tournament{
         	//echo "LEFT : " . count($matchLeft) . "\n";
         	if(count($matchLeft) == 0){
         		$round = $this->getRound($t_id);
-        		//echo "ROUND  :  " . $round . "\n";
+        		echo "ROUND  :  " . $round . "\n";
         		$n = $this->getNumberOfMatchesInRound($t_id , $round);
         		//$n = $n /2;
         		echo  "N : " . $n . "\n";
@@ -81,8 +81,8 @@ class Tournament{
         }
         
         public function getRound($tournamentID){
-        	$data = $this->db->select("Entry as e, `Match` as m" , "Round" , "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Result IS NOT NULL");
-        	return $data[0]['Round'];
+        	$data = $this->db->select("Entry as e, `Match` as m" , "MAX(Round) as r" , "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Result IS NOT NULL");
+        	return $data[0]['r'];
         	//SELECT Round FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Result IS NOT NULL LIMIT 1;
 
         }
