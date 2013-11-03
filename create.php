@@ -6,6 +6,8 @@ if($_POST[submit]){
 }
 ?>
 <div class="container">
+      <div class="row-fluid">
+        <div class="span6">
 <form action="#" method="POST" class="form-signin">
   <fieldset>
     <h2 class="form-signin-heading">Create Tournament</h2>
@@ -21,5 +23,7 @@ if($_POST[submit]){
 	<input type="submit" name="submit" value="Create Tournament" />
   </fieldset>
 </form>
+</div>
+</div>
 </div>
 <?include("inc/footer.php");?>
