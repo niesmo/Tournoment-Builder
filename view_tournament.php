@@ -41,27 +41,28 @@ var player_width = 150;
 
 	for(var j=1;j<=num_participants; j++) {
 		ctx.fillText(players[j-1],10,player_height * j);
-		ctx.moveTo(10,player_height * j - 5);
-		ctx.lineTo(150,player_height * j -5);
+		ctx.moveTo(10,player_height * j + 5);
+		ctx.lineTo(150,player_height * j +5);
 		ctx.stroke();	
 		if(j%2==0){
 			//if result = First -> Green
-			ctx.moveTo(player_width,player_height * j -5);
+			ctx.moveTo(player_width,player_height * j +5);
 			ctx.lineTo(player_width * (2),player_height * (j-.5));
 			ctx.stroke();
 			ctx.lineTo(player_width * (3),player_height * (j-.5));
 			ctx.stroke();
-			ctx.lineTo(player_width * (3),player_height * (j-1.5));
-			ctx.stroke();	
 			ctx.lineTo(player_width * (4),player_height * (j-1.5));
+			ctx.stroke();	
+			ctx.lineTo(player_width * (5),player_height * (j-1.5));
 			ctx.stroke();
 		}
 		else{
 			//if result = Second -> Green
-			ctx.moveTo(player_width,player_height * j -5);
+			ctx.moveTo(player_width,player_height * j +5);
 			ctx.lineTo(player_width * (2),player_height * (j+.5));
-			ctx.stroke();		
-			ctx.lineTo(player_width * (3),player_height * (j+1.5));
+			ctx.stroke();
+			ctx.moveTo(player_width*3,player_height * j +5);		
+			ctx.lineTo(player_width * (4),player_height * (j+1.5));
 			ctx.stroke();
 		}
 		
