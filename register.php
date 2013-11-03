@@ -38,6 +38,8 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "</ol></div><div class='span6'>";
 }
 ?>
+
+<?if($result[MaxPlayer] < count($participants)){?>
 <form action="register.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Register for this tournament</h2>
@@ -46,6 +48,10 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
   </fieldset>
 </form>
+<?}else{
+	echo "<p>This Tournament is full!!</p>";
+}?>
+
 </div>
 </div>
 <?require_once("inc/footer.php")?>
