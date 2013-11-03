@@ -17,13 +17,14 @@ if(!isset($_GET["id"])) {
 	</thead>
 	<tbody>
 <? $matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
-		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2");
+		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2",
+		"MatchID");
 	foreach($matches as $match) {?>
 		<tr>
 			<td><?echo $match["EntryID1"]?></td>
 			<td><?echo $match["EntryID2"]?></td>
-			<td><?	if($match["Result"] == "FIRST") echo $match[0];
-					elseif($match["Result"] == "SECOND") echo $match[1];
+			<td><?	if($match["Result"] == "FIRST") echo $match["EntryID1"];
+					elseif($match["Result"] == "SECOND") echo $match["EntryID2"];
 					else echo "Draw";?></td>
 		</tr>
 	<?} // end foreach ?>
