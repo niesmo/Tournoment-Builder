@@ -8,7 +8,8 @@ includeHeader("Administration Panel");?>
 	$result = $db->select("Tournament", "Name, Description, Status",
 		"TournamentID = $_GET[id]")[0];
 	echo "<h1>Administrative options for " . $result["Name"] . "</h1>";
-	echo "<p>" . $result["Description"] . "</p>"; 
+	echo "<p>" . $result["Description"] . "</p>";
+	echo $result["Status"];
 	if($result["Status"] == "PROGRESS") { // display current matches?>
 	<table class='table table-bordered'>
 		<thead>
