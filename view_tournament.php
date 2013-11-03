@@ -41,13 +41,7 @@ var player_width = 150;
 	<? foreach($participants as $val){
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
-var my_match = new Array();
-	<? foreach($matches as $value){
-		echo "var one_match = new Array(); one_match['EntryID1']=" . $value['EntryID1'] . ";";
-		echo "one_match['EntryID2']=" . $value['EntryID2'] . ";";
-		echo "one_match['Order']=" . $value['Order'] . ";";
-		echo "one_match['Round']=" . $value['Round'] . "; my_match.push(one_match);";
-	}?>
+
 
 //build structure
 function drawLines(num_row,column){
@@ -68,12 +62,12 @@ function drawLines(num_row,column){
 			//diaganol lines
 			if (i%2==0) {
 				ctx.strokeStyle = '#000000';
-				ctx.fillText(my_match[i/2]['EntryID1'],player_width * column,start_height + (player_height * i) +5);	
+				ctx.fillText(players[i*column],player_width * column,start_height + (player_height * i) +5);	
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5)));
 				ctx.stroke();	
 			}else{
 				ctx.strokeStyle = '#ff0000';
-				ctx.fillText(my_match[i/2]['EntryID2'],player_width * column,start_height + (player_height * i) +5);	
+				ctx.fillText(players[i*column],player_width * column,start_height + (player_height * i) +5);	
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i-.5)));
 				ctx.stroke();	
 			}
