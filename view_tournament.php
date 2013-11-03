@@ -43,8 +43,9 @@ var player_width = ctx.canvas.width/3;
 	<? foreach($participants as $val){
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
-	for(var j=0;j<num_participants; j++) {
-		ctx.fillText(players[j],player_width,player_height * j);
+
+	for(var j=1;j<=num_participants; j++) {
+		ctx.fillText(players[j],10,player_height * j);
 		ctx.moveTo(player_width,player_height * j);
 		ctx.lineTo(player_width * (j+1),player_height * (j+1));
 		ctx.stroke();
