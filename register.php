@@ -1,6 +1,6 @@
 <? include("conf/config.php");
 include("inc/header.php");
-if(!isset($_GET['id']) && !isset($_POST[id])) {
+if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
 	//$t_id = isset($_GET[id])?$_GET[id]?$_POST[id];
@@ -37,7 +37,7 @@ if(!isset($_GET['id']) && !isset($_POST[id])) {
 <form action="register.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Register for this tournament</h2>
-   	<input type="hidden" name="id" value="<?=$t_id?>"/>
+   	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="name" type="text" placeholder="Participant Name"/>
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
   </fieldset>
