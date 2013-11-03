@@ -23,6 +23,6 @@ class Tournament{
 	public function getMatches($tournament_id, $field="*") {
 		return $this->db->select("`Match` as m , Entry as e", $field,
 		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
-		e.TournamentID = 'tournament_id'", "MatchID");
+		e.TournamentID = 'tournament_id'", "MatchID");}
 }
 ?>

@@ -5,5 +5,7 @@
 		else
 			echo "FAILED";
 	}
-	echo "FAILED";
+	else{
+		echo "FAILED";
+	}
 ?>
