@@ -56,7 +56,7 @@ function drawLines(num_row,column){
 		ctx.stroke();
 	}
 	else{
-		var row_height = start_height + (player_height * column);
+		//var row_height = start_height + (player_height * column);
 		for(var i=0;i<num_row;i++){
 
 			
