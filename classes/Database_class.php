@@ -49,7 +49,8 @@ class Database {
 	{
 		$q = "UPDATE $tableName SET $set WHERE $where";
 		//echo $q . "<br />";
-		return $this->query ( $q );
+		$this->query ( $q );
+		return mysqli_affected_rows ( $this->connection );
 	}
     
 	public function delete($tableName, $where = "") {
