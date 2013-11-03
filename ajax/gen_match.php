@@ -35,12 +35,9 @@ function merge($a, $b) {
 	return $out;
 }
 
-function gen_matches($round, $entryIDs , $dbTemp) {
+function gen_matches($round, $entryIDs , $db) {
 	
 	print_r($entryIDs);
-	if($dbTemp->isConnected()){
-		echo "<h1>Connected</h1>";
-	}
 	for($i=0;$i<count($entryIDs)/2;$i++) {
 		$db->insert("`Match`", "EntryID1, EntryID2, Round, Order",
 		"'".$entryIDs[$i*2]."', '".$entryIDs[$i*2+1]."', '$round', '$i'");
