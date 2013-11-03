@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
 	}
 	else{
 		$msg = "<div class='alert alert-success'><p>Your tournament has successfully been created!</p></div>";
-		$msg . "<p>The link for your tournament is <a href='resgister.php?id=$id'>$PATH.'register.php?$id'</a></p>";
+		$msg .= "<p>The link for your tournament is <a href='resgister.php?id=$id'>".PATH."register.php?id=$id</a></p>";
 	}
 }
 ?>
