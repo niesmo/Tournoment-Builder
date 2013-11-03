@@ -8,7 +8,6 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    custom.css
     <link href="http://masterme120.chronos.feralhosting.com/hackathon/dev/css/custom.css" rel="stylesheet">
     <link href="http://masterme120.chronos.feralhosting.com/hackathon/dev/css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
