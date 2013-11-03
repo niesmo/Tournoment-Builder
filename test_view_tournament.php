@@ -80,6 +80,7 @@ function drawLines(num_row,column){
 		drawLines(num_row/2,column+1);
 	}
 }
+drawLines(num_buckets,1);
    
   window.requestAnimFrame = (function(callback) {
     return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
