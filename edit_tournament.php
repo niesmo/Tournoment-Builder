@@ -40,8 +40,8 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 <form action="register.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Add Player</h2>
-        <input type="hidden" name="id" value="<? echo $t_id; ?>"/><br>
-        <input name="name" type="text" placeholder="Participant Name"/>
+        <input type="hidden" name="id" value="<? echo $t_id; ?>"/>
+        <input name="name" type="text" placeholder="Participant Name"/><br>
         <input class="btn btn-primary btn-large" type="submit" name="submit" value="Add Player" />
   </fieldset>
 </form>
