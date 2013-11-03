@@ -12,8 +12,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
       <div class="row-fluid">
         <div class="span6">
 	<?
-	$result = $db->select("Tournament", "Name, Description, Rules, Type, Status",
-		"TournamentID = $t_id")[0]; // get name, description, and rules
+	$result = $db->select("Tournament", "*","TournamentID = $t_id")[0]; // get name, description, and rules
 	echo "<h1>" . $result['Name'] . "</h1>"; // name
 	echo "<p>" . $result['Description'] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
@@ -52,7 +51,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
     <h2 class="form-signin-heading"><? echo $result['Name']; ?></h2>
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
-<!-- 	<select name="type">
+	<select name="type">
 	  <option value="SINGLE" <? ($result['Type']='SINGLE')?echo 'selected':""; ?>>Single Elimination</option>
 	  <option value="DOUBLE" <? ($result['Type']='DOUBLE')?echo 'selected':""; ?>>Double Elimination</option>
 	  <option value="ELO" <? ($result['Type']='ELO')?echo 'selected':""; ?>>Elo Ranking System</option>
@@ -60,9 +59,9 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	</select>
 	<select name="status">
 	  <option value="OPEN" <? ($result['Status']='OPEN')?echo 'selected':""; ?>>Open</option>
-	  <option value="INPROGRESS" <? ($result['Status']='INPROGRESS')?echo 'selected':""; ?>>In-Progress</option>
+	  <option value="PROGRESS" <? ($result['Status']='PROGRESS')?echo 'selected':""; ?>>In-Progress</option>
 	  <option value="ClOSE" <? ($result['Status']='CLOSE')?echo 'selected':""; ?>>Closed</option>
-	</select> -->
+	</select>
 	<br>
 	<textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
 				<textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
