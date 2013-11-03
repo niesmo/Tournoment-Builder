@@ -3,7 +3,6 @@ global $db;
 global $Participant;
 if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'")[0];
-	print_r($match);
 	$round = $match['Round']+1;
 	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]");
 	$initialEntries = merge($initialEntries, []);
@@ -14,7 +13,8 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 		if($round >= ceil(log(count($initialEntries), 2))) {// final round
 			$lastMatch = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
 				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
-				e.TournamentID = '$_GET[id]' AND m.Round = '$round'")[0];
+				e.TournamentID = '$_GET[id]' AND m.Round = '$round'");
+			print_r($lastMatch);
 			$winnerID = $lastMatch[$lastMatch['Result'] == 'FIRST' ? 'EntryID1' : 'EntryID2'];
 			$winner = $Participant->getParticipantInfo($winnerID);
 			$db->update("Tournament", "Status='CLOSE', Winner='$winner'", "TournamentID='$_GET[id]'");
