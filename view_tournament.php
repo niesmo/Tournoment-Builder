@@ -35,6 +35,8 @@ ctx.canvas.height = window.innerHeight;
 ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
 ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",10,50);
+ctx.moveTo(200,200);
+ctx.fillText("test 2",10,50);
 var players = new Array();
 var player_height = ctx.canvas.height/4;
 var player_width = ctx.canvas.width/3;
