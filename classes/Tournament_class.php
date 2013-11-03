@@ -88,7 +88,7 @@ class Tournament{
         }
         public function getNumberOfMatchesInRound($tournamentID , $round ){
         	$data = $this->db->select("Entry as e, `Match` as m" , "COUNT(*) as c" ,  "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Round = $round");
-        	return $data['c'];
+        	return $data[0]['c'];
         	//SELECT COUNT(*) as c FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Round = 0;
         }
         public function getWinners($t_id , $round ){
