@@ -17,12 +17,13 @@ if(!isset($_GET["id"])) {
 		</tr>
 	</thead>
 	<tbody>
-<? 	$matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
+<? 	$matches = $db->select("`Match` as m , Entry as e, Participant as p", "EntryID1, EntryID2, Result, p.Name",
 	"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = '$_GET[id]'",
 	"MatchID");
 foreach($matches as $match) {?>
 		<tr>
 		<?if($match["Result"] == "") { // match in progress?>
+			//getting the participant info
 			<td><button class="btn"><?echo $match["EntryID1"]?></button></td>
 			<td><button class="btn"><?echo $match["EntryID2"]?></button></td>
 			<td><i>Awaiting Results</i></td>
