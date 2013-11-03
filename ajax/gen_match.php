@@ -25,7 +25,7 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 			}
 		}
 	}
-} else echo "round and/or id not found in request!";
+}
 
 function merge($a, $b) {
 	$out = [];
@@ -38,8 +38,6 @@ function merge($a, $b) {
 }
 
 function gen_matches($round, $entryIDs , $db) {
-	
-	print_r($entryIDs);
 	for($i=0;$i<count($entryIDs)/2;$i++) {
 		$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
 		$entryIDs[$i*2].", ".$entryIDs[$i*2+1].", $round, $i");
