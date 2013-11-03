@@ -50,12 +50,15 @@ class Tournament{
         	//Adding the result
         	$this->db->update("`Match`", "Result = '$result'", " MatchID = $matchID");
         	$matchLeft = $this->matchesLeft($t_id);
-        	echo "LEFT : " . count($matchLeft) . "\n";
+        	//echo "LEFT : " . count($matchLeft) . "\n";
         	if(count($matchLeft) == 0){
+        		echo "Insde IF \n";
         		$round = $this->getRound($t_id);
+        		echo "ROUND  :  " . $round . "\n";
         		$n = $this->getNumberOfMatchesInRound($t_id , $round);
         		$n = $n /2;
-        		$winner = $this->getWinners($t_id, $round);
+        		echo  "N : " . $n . "\n";
+          		$winner = $this->getWinners($t_id, $round);
         		for($i = 0;$i<$n;$i++){
         			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winners[$i++]['EntryID'] . " , ". $winners[$i]['EntryID'] . " , NULL, $round+1 , -1");
         		}
