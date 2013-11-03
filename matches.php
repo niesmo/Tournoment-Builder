@@ -23,7 +23,7 @@ if(!isset($_GET["id"])) {
 	foreach($matches as $match) {?>
 			<tr>
 			<?if($match["Result"] == "") { // match in progress
-				echo $match['EntryID1'];
+				
 				$part_1 = $participant->getParticipantInfo($match['EntryID1']);
 				$part_2 = $participant->getParticipantInfo($match['EntryID2']);
 				print_r( $part_1);
@@ -35,8 +35,8 @@ if(!isset($_GET["id"])) {
 				<td><i>Awaiting Results</i></td>
 				<td><button class="btn">Draw</button>
 			<?} else {?>
-				<td><?echo $match["EntryID1"]?></td>
-				<td><?echo $match["EntryID2"]?></td>
+				<td><?echo $part_1['Name']?></td>
+				<td><?echo $part_2['Name']?></td>
 				<td><?	if($match["Result"] == "FIRST") echo $part_1['Name'];
 						elseif($match["Result"] == "SECOND") echo $part_2['Name'];
 						elseif($match["Result"] == "TIE") echo "Draw";?></td>
