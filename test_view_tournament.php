@@ -55,25 +55,26 @@ function drawLines(num_row,column){
 		ctx.stroke();
 	}
 	else{
+		var row_height = start_height + (player_height * column);
 		for(var i=0;i<num_row;i++){
 
-			var row_height = start_height + (player_height * column *(i+.5));
+			
 			//start_height + (player_height * (i+.5)));
 			ctx.strokeStyle = '#000000';
-			ctx.moveTo(player_width * column-150,row_height);
-			ctx.lineTo(player_width * (column+.5)-150,row_height);
-			ctx.fillText(players[i*column],player_width * column-150,row_height);	
+			ctx.moveTo(player_width * column-150,row_height*i);
+			ctx.lineTo(player_width * (column+.5)-150,row_height*i);
+			ctx.fillText(players[i*column],player_width * column-150,row_height*i);	
 
 			//ctx.lineTo(player_width * (column+2)-150,start_height + (player_height * (i+.5)));
 			ctx.stroke();
 			//diaganol lines
 			if (i%2==0) {
 				ctx.strokeStyle = '#000000';
-				ctx.lineTo(player_width * (column+1)-150,start_height + (player_height * (i+.5)));
+				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i+.5)));
 				ctx.stroke();	
 			}else{
-				ctx.strokeStyle = '#ff0000';
-				ctx.lineTo(player_width * (column+1)-150,start_height + (player_height * (i-.5)));
+				ctx.strokeStyle = '#550000';
+				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i-.5)));
 				ctx.stroke();	
 			}
 		}
