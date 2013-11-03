@@ -23,8 +23,8 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 <script>
 
 var num_participants = <? echo $num_participants; ?>;
-//var num_buckets = pow(2,(Math.ceil(Math.log(num_participants)/Math.LN2)));
-//alert(num_buckets);
+var num_buckets = Math.pow(2,(Math.ceil(Math.log(num_participants)/Math.LN2)));
+alert("hello");
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
