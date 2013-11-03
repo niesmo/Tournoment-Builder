@@ -3,21 +3,21 @@ include("inc/header.php");
 if(!isset($_GET['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	if($_POST[submit]){
+	if($_POST['submit']){
 		$db->insert("Participant", "Name", "'$_POST[name]'");
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$_GET[id], $id");
 	}?>
       <div class="row-fluid">
-        <div class="span8">
+        <div class="span6">
 	<?
 	$result = $db->select("Tournament", "Name, Description, Rules",
 		"TournamentID = $_GET[id]")[0]; // get name, description, and rules
 	echo "<h1>Register for " . $result['Name'] . "</h1>"; // name
 	echo "<p>" . $result['Description'] . "</p>"; // description
-	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
+	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
-	$participants =$tournament->getParticipants($_GET[id]);
+	$participants =$tournament->getParticipants($_GET['id']);
 	// print_r($participants);
 
 	echo "<h3>Current Participants:</h3><ol>";
@@ -26,7 +26,7 @@ if(!isset($_GET['id'])) {
 		echo $val[Name];
 		echo "</li>\n";
 	}
-	echo "</ol>";
+	echo "</ol></div><div class=\"span6\"";
 }
 ?>
 
