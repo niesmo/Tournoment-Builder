@@ -53,18 +53,18 @@ class Tournament{
         	//echo "LEFT : " . count($matchLeft) . "\n";
         	if(count($matchLeft) == 0){
         		$round = $this->getRound($t_id);
-        		echo "ROUND  :  " . $round . "\n";
+        		//echo "ROUND  :  " . $round . "\n";
         		$n = $this->getNumberOfMatchesInRound($t_id , $round);
         		//$n = $n /2;
-        		echo  "N : " . $n . "\n";
+        		//echo  "N : " . $n . "\n";
         		$winner = $this->getWinners($t_id, $round);
         		if($n==1){
         			$this->db->update("Tournament" , "Status = 'CLOSE'" , "TournamentID = $t_id");
         			$winnerInfo = $this->db->select("Entry as e, Participant as p" , "p.Name" , "e.EntryID = ".$winner[0][EntryID]." AND e.ParticipantID = p.ParticipantID");
         			print_r($winnerInfo);
-        			$this->db->update("Tournament" , "Winner = ".$winnerInfo[0][Name] , "TournamentID = $t_id");
+        			$this->db->update("Tournament" , "Winner = '".$winnerInfo[0][Name]."'" , "TournamentID = $t_id");
         		}
-          		print_r($winner);
+          		//print_r($winner);
           		for($i = 0;$i<$n;$i++){
          			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winner[$i++]['EntryID'] . " , ". $winner[$i]['EntryID'] . " , NULL, $round+1 , -1");
         		}
