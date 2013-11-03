@@ -3,7 +3,8 @@ include("inc/header.php");
 if(!isset($_GET['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	if($_POST['submit']){
+	if(isset($_POST['submit'])){
+		echo "In the submit if<br>";
 		$db->insert("Participant", "Name", "'$_POST[name]'");
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$_GET[id], $id");
