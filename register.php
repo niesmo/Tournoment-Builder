@@ -27,15 +27,15 @@ if(!isset($_GET['id'])) {
 		echo $val['Name'];
 		echo "</li>\n";
 	}
-	echo "</ol></div><div class=\"span6\"";
+	echo "</ol></div><div class='span6'>";
 }
 ?>
 
 
-<form action="#" method="POST">
+<form action="register.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Register for this tournament</h2>
-	<input name="name" type="text" placeholder="Participant Name">
+	<input name="name" type="text" placeholder="Participant Name"/>
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
   </fieldset>
 </form>
