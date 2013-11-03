@@ -1,6 +1,5 @@
 <? include('../conf/config.php');
 global $db;
-echo "test";
 if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'", "", "", "1");
 	$round = $match['Round']+1;
@@ -30,7 +29,6 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 		}
 	}
 } elseif(isset($_GET['id'])) { // first round
-	echo "First round";
 	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]");
 	$initialEntries = merge($initialEntries, []);
 	$byes = pow(2, ceil(log(count($initialEntries), 2)))-count($initialEntries);
