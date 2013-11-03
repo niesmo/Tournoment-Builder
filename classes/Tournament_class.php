@@ -64,12 +64,11 @@ class Tournament{
         
         public function getTournamentID($matchID){
         	$entry  = $this->db->select("`Match` as m, Entry as e" , "e.EntryID" , "e.EntryID = m.EntryID1 AND m.MatchID = $matchID");
-        	print_r($entry);
         	$entry = $entry[0]['EntryID'];
-        	echo "ENTRY : " . $entry . "\n";
         	
-        	$t_id = $this->db->select("Tournament as t, Entry as e", "e.TournamentID" , "t.TournamentID = e.TournamentID AND e.EntryID = $entry" , "" , "" , 1);
-        	return $t_id['TournamentID'];
+        	$t_id = $this->db->select("Tournament as t, Entry as e", "e.TournamentID" , "t.TournamentID = e.TournamentID AND e.EntryID = $entry");
+        	echo "T_ID : " . $t_id[0]['TournamentID'] . "\n";
+        	return $t_id[0]['TournamentID'];
         }
         
         public function matchesLeft($tournamentID , $fields = "*"){
