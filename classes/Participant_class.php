@@ -3,9 +3,11 @@ class Participant{
         private $db;
         public function __construct( $db ){
                 $this->db = $db;
+                echo "Participant object Created";
         
         }
         public function getParticipantInfo($entry_id , $fields = "*"){
+                echo "we are in the info";
                 if($entry_id == -1){
                         return  array("Name" => "Bye");
                 }
