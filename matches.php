@@ -7,7 +7,7 @@ if(!isset($_GET["id"])) {
 		"TournamentID = $_GET[id]")[0]; // get name and description
 	echo "<h1>Current Matches for " . $result["Name"] . "</h1>";
 	echo "<p>" . $result["Description"] . "</p>"; ?>
-	<table class='table-bordered'>
+	<table class='table table-bordered'>
 		<thead>
 			<tr>
 				<th>Entrant 1</th>
