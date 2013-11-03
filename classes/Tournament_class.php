@@ -8,9 +8,11 @@ class Tournament{
 	
 	public function newTournament($name, $type, $description, $rules){
 		$now = date("Y-m-d H:i:s"); 
-	        $this->db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
-	                "'$name', '$type', '$now', 'OPEN', '$description', '$rules'");
-	        return $this->db->lastInsertedID;
+	        if($this->db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
+	                "'$name', '$type', '$now', 'OPEN', '$description', '$rules'") == 1)
+	        	return $this->db->lastInsertedID;
+	        else
+	        	return -1;
 	}
 	
 	
