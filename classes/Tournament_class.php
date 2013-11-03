@@ -47,7 +47,11 @@ class Tournament{
         }
         public function submitMatch($matchID, $result){
         	$t_id = $this->getTournamentID($matchID);
-        	echo $t_id;
+        	//Adding the result
+        	$db->update("`Match`", "Result = '$result'", " MatchID = $matchID");
+        	//check and see if there is any match left
+        	
+        	
         }
         
         public function getTournamentID($matchID){
@@ -58,6 +62,12 @@ class Tournament{
         	
         	$t_id = $this->db->select("Tournament as t, Entry as e", "e.TournamentID" , "t.TournamentID = e.TournamentID AND e.EntryID = $entry" , "" , "" , 1);
         	return $t_id['TournamentID'];
+        }
+        
+        public function matchesLeft($tournamentID , $fields = "*"){
+        	return $this->db->select("Entry as e, `Match` as m" , $fields , "(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = $tournamentID AND Result IS NULL" , "MatchID");
+        	// SELECT * FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Result IS NULL;
+
         }
         
 }
