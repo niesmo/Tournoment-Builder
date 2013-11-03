@@ -1,5 +1,8 @@
 <? include("conf/config.php");
 include("inc/header.php");
+      <div class="row-fluid">
+        <div class="span6">
+
 if(!isset($_GET[id])) {
 	echo "Error: No tournament ID supplied";
 } else {
@@ -15,8 +18,7 @@ if(!isset($_GET[id])) {
 	echo "<p>" . $result[Description] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
 ?>
-      <div class="row-fluid">
-        <div class="span6">
+
 <form action="#" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Add Participant</h2>
