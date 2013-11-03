@@ -4,11 +4,12 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
 
-	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
-	if(isset($_POST['submit'])){
-		$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]', Status='$_POST[status]'","TournamentID=$t_id");
-		
-	}?>
+//	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
+//	if(isset($_POST['submit'])){
+//		$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]', Status='$_POST[status]'","TournamentID=$t_id");
+//		
+//	}
+?>
       <div class="row-fluid">
         <div class="span6">
 	<?
