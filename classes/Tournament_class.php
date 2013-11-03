@@ -98,16 +98,10 @@ class Tournament{
         	$second = $this->db->select("Entry as e, `Match` as m" , "*" , "e.EntryID = m.EntryID2  AND e.TournamentID = $t_id AND Result = 'SECOND' AND Round = $round GROUP BY MatchID ") ;
         	$total = array_merge($first, $second);
         	//print_r($total);
-        	usort($total , "cmp");
+        	sort($total);
         	return $total;
         }
         
-}
-function cmp($a,$b){
-	if($a == $b)
-		return 0;
-	return ($a['EntryID'] < $b['EntryID']) ? -1:1;
-		
 }
 //SELECT e.EntryID FROM `Match` as m, Entry as e WHERE e.EntryID = m.EntryID1 AND m.MatchID = 171;
 //SELECT e.TournamentID FROM Tournament as t, Entry as e WHERE t.TournamentID = e.TournamentID AND e.EntryID = 67;
