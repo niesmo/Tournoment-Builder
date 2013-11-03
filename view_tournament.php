@@ -32,7 +32,6 @@ ctx.canvas.height = window.innerHeight;
 
 ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",window.innerWidth/2,50);
-ctx.fillText(num_buckets,200,100);
 
 var players = new Array();
 
@@ -55,12 +54,12 @@ function drawLines(num_row,column){
 	else{
 		for(var i=0;i<num_row;i++){
 			ctx.fillText(num_row,player_width * column,start_height);
-			ctx.moveTo(player_width * column,player_height * i +5);
-			ctx.lineTo(player_width * (column+1),player_height * i+5);
+			ctx.moveTo(player_width * column,start_height + (player_height * i) +5);
+			ctx.lineTo(player_width * (column+1),start_height + (player_height * i)+5);
 			ctx.stroke();
 			//diaganol lines
 			if (num_row%2==0) {
-				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5));
+				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5)));
 				ctx.stroke();	
 			}else{
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i-.5)));
