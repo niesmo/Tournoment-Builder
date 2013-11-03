@@ -23,7 +23,8 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 			}
 		}
 	}
-}
+} else echo "round and/or id not found in request!";
+
 private function merge($a, $b) {
 	$out = [];
 	foreach($a as $array) foreach($array as $key => $value)	$out[] = $value;
