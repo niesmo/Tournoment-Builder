@@ -28,7 +28,8 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 			gen_matches($round, merge($first, $second), $db );
 		}
 	}
-} else if(isset($_GET['id'])) { // first round
+} elseif(isset($_GET['id'])) { // first round
+	echo "First round";
 	$byes = pow(2, ceil(log(count($initialEntries), 2)))-count($initialEntries);
 	for($i=0;$i<$byes;$i++) { // award byes
 		array_splice($initialEntries, $i*2+1, 0, [-1]);
