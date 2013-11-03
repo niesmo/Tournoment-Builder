@@ -22,7 +22,8 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
 	$participants =$tournament->getParticipants($t_id);
-	// print_r($participants);
+	//print_r($participants);
+	echo count($participants);
 	// if(count($participants)>0){
 	// 	echo "<h3>Current Participants:</h3><ol>";
 	// 	foreach($participants as $val){
