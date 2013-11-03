@@ -35,8 +35,9 @@ function merge($a, $b) {
 }
 
 function gen_matches($round, $entryIDs) {
+	print_r($entryIDs);
 	for($i=0;$i<count($entryIDs)/2;$i++) {
-		echo $entryIDs[$i*2].", ".$entryIDs[$i*2+1]", '$round', '$i' <br>";
+		echo $entryIDs[$i*2] . ", ";
 	}
 }
 ?>
