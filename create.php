@@ -26,6 +26,7 @@ if(isset($_POST['submit'])){
 				  <option value="ELO">Elo Ranking System</option>
 				  <option value="MTG">Tournament Inspired by MtG</option>
 				</select><br>
+				<input type="number" name="maxPlayer" placerholder="Max number of player"/><br>
 				<textarea class="input-block-level" name="description" rows="3" placeholder="Description"></textarea><br>
 				<textarea class="input-block-level" name="rules" rows="3" placeholder="Rules"></textarea><br>
 				<input class="btn btn-primary btn-large" type="submit" name="submit" value="Create Tournament" />
