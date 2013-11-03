@@ -47,7 +47,7 @@ var player_width = 150;
 function drawLines(num_row,column){
 	var start_height = player_height * column;
 	if(num_row==1){
-		ctx.moveTo(player_width * column, start_height +(player_height * num_row * column);
+		ctx.moveTo(player_width * column, start_height +(player_height * num_row * column));
 		ctx.lineTo(player_width * (column +1),player_height * num_row*column);
 		ctx.stroke();
 	}
