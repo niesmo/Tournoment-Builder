@@ -1,26 +1,30 @@
 <? include('../conf/config.php');
-if(isset($_GET['order']) && isset($_GET['round']) && isset($_GET['EntryID']) &&
-	isset($_GET['TournamentID'])) {
-	$totalEntries = $db->select("Entry", "COUNT(*)")[0][0];
-	if($_GET['round'] < log($totalEntries, 2)) { // not final round
-		$sister = db->select("`Match`", "EntryID1, EntryID2, Result", 
-			"Round='$_GET[round]' AND `Order`=('_GET[order]'%2 == 0 ? " . // for even, go up one
-			"_GET[order]+1 : _GET[order]-1)", "", "", "1"); // for odd, go down one
-	
-		if(!isempty($sister) && $sister['Result'] != "") { // if sister match has a result
-			$sisterWinner = $sister[$sister['Result'] == "FIRST" ? 'EntryID1' : 'EntryID2'];
-			db->insert("`Match`", "EntryID1, EntryID2, `Order`, Round", min($_GET['EntryID'],
-			$sisterWinner) . ", " . max($_GET['EntryID'], $sisterWinner) . // sort entries
-			", $_GET['order'] DIV 2, $_GET['round']+1"); // calc next order and round #s
+if(isset($_GET['round']) && isset($_GET['TournamentID'])) {
+	$initialEntries = $db->select("Entry", "COUNT(*)", "TournamentID=$_GET[TournamentID]")[0][0];
+	if($_GET['round'] == '0') { // first round: gen from Entry
+		gen_matches(0, $initialEntries);
+	} else {
+		if($db->select("`Match` as m , Entry as e", "COUNT(*)",
+		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
+		e.TournamentID = '$_GET[TournamentID]' AND m.Round = $_GET[round]-1 AND 
+		m.Result != 'null'", "MatchID")[0][0] == 0) { // all results in from previous round
+			if($round >= ceil(log(count($initialEntries, 2))) // final round
+				db->update("Tournament", "Status='CLOSE'", "TournamentID='$_GET[TournamentID]'");
+			else {
+				$first = db->select("`Match` as m , Entry as e", "EntryID1",
+				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
+				e.TournamentID = '$_GET[TournamentID]' AND m.Round = $_GET[round]-1 AND
+				m.Result = 'FIRST'", "MatchID");
+				$second = db->select("`Match` as m , Entry as e", "EntryID2",
+				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
+				e.TournamentID = '$_GET[TournamentID]' AND m.Round = $_GET[round]-1 AND
+				m.Result = 'SECOND'", "MatchID");
+				gen_matches($_GET['round'], sort(array_merge($first, $second)));
+			}
 		}
-	} else { // final round
-		db->update("Tournament", "Status='CLOSE'", "TournamentID='$_GET[TournamentID]'");
 	}
-} elseif($_GET['round'] == '0' && isset($_GET['TournamentID']) { // first round: gen all matches
-	$totalEntries = $db->select("Entry", "COUNT(*)")[0][0];
-	$bye = $totalEntries
-	for($i=0;$i<floor($totalEntries/2);$i++) {
-		
-	
-	
+}
+
+private function gen_matches($round, $entryIDs) {
+	print_r($entryIDs);
 ?>
