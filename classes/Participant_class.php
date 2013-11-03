@@ -11,7 +11,7 @@ class Participant{
                 if($entry_id == -1){
                         return  array("Name" => "Bye");
                 }
-                print_r($this->db->select("Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.EntryID = $entry_id")[0]);
+                print_r($this->db->select("Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.EntryID = $entry_id"));
                 return $this->db->select("Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.EntryID = $entry_id")[0];
         }
         
