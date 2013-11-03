@@ -59,7 +59,7 @@ class Tournament{
         		echo  "N : " . $n . "\n";
           		$winner = $this->getWinners($t_id, $round);
           		print_r($winners);
- OR	for($i = 0;$i<$n;$i++){
+          		for($i = 0;$i<$n;$i++){
          			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winner[$i++]['EntryID'] . " , ". $winner[$i]['EntryID'] . " , NULL, $round+1 , -1");
         		}
         	}
@@ -98,7 +98,7 @@ class Tournament{
         	$second = $this->db->select("Entry as e, `Match` as m" , "*" , "e.EntryID = m.EntryID2  AND e.TournamentID = $t_id AND Result = 'SECOND' AND Round = $round GROUP BY MatchID ") ;
         	$total = array_merge($first, $second);
         	//print_r($total);
-        	//sort($total);
+        	sort($total);
         	return $total;
         }
         
