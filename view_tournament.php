@@ -34,7 +34,7 @@ ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
 ctx.moveTo(100,100);
 ctx.font="40px Arial";
-ctx.fillText("<? $result['Name'] ?>",10,50);
+ctx.fillText("<? echo $result['Name']; ?>",10,50);
 if(num_participants==4){
 	player_height = ctx.canvas.height/4;
 	player_width = ctx.canvas.width/3;
