@@ -20,16 +20,12 @@ if(!isset($_GET["id"])) {
 	<? 	$matches = $db->select("`Match` as m , Entry as e, Participant as p", "EntryID1, EntryID2, Result, p.Name",
 		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = '$_GET[id]'",
 		"MatchID");
-	foreach($matches as $match) {?>
-			<tr>
-			<?if($match["Result"] == "") { // match in progress
-				
-				$part_1 = $participant->getParticipantInfo($match['EntryID1']);
-				$part_2 = $participant->getParticipantInfo($match['EntryID2']);
-				print_r( $part_1);
-				print_r( $part_2);
+	foreach($matches as $match) {
+			$part_1 = $participant->getParticipantInfo($match['EntryID1']);
+			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
 			?>
-				//getting the participant info
+			<tr>
+			<?if($match["Result"] == "") { // match in progress ?>
 				<td><button class="btn"><?echo $part_1['Name']?></button></td>
 				<td><button class="btn"><?echo $part_2['Name']?></button></td>
 				<td><i>Awaiting Results</i></td>
