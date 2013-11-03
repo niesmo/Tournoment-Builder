@@ -5,6 +5,8 @@ function submitResult(m_id, res){
 		data: {MatchID :m_id ,result : res },
 		success: function(data){
 			alert(data.toString());
+			data = data.toString();
+			alert(data.contains("SUCCESS"));
 			//alert(.contains("SUCCESS"));
 			//if(data.contains("SUCCESS") != -1){
 			//	location.reload(true);
