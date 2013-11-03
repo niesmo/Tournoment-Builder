@@ -22,7 +22,7 @@ if(!isset($_GET["id"])) {
 	"MatchID");
 foreach($matches as $match) {?>
 		<tr>
-		<?if($match["Result"] == "") { // match in progress	
+		<?if($match["Result"] == "") { // match in progress?>
 			<td><button class="btn"><?echo $match["EntryID1"]?></button></td>
 			<td><button class="btn"><?echo $match["EntryID2"]?></button></td>
 			<td><i>Awaiting Results</i></td>
