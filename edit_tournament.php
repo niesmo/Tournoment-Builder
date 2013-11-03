@@ -51,6 +51,7 @@ else
 	</form><?}else{
 		echo "<p>Tournament is FULL!</p>";
 	}?>
+	<?print_r($result);?>
 	</div>
 	<div class='span6'>
 	<form action="edit_tournament.php" method="POST">
