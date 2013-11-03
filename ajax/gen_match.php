@@ -20,7 +20,7 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
 				e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND
 				m.Result = 'SECOND'", "MatchID");
-				gen_matches($_GET['round'], merge($first, $second)));
+				gen_matches($_GET['round'], merge($first, $second));
 			}
 		}
 	}
