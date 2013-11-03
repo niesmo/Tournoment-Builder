@@ -44,7 +44,7 @@ var player_width = 150;
 
 //build structure
 function drawLines(num_row,column){
-	var row_height = (player_height * column);
+	var row_height = Math.pow(player_height,column);
 	var start_height = (player_height * (column-1)*2) -(player_height*.5);
 
 
@@ -62,17 +62,15 @@ function drawLines(num_row,column){
 			
 			//start_height + (player_height * (i+.5)));
 			ctx.strokeStyle = '#000000';
-			ctx.moveTo(player_width * column-150,row_height*i);
-			ctx.lineTo(player_width * (column+.5)-150,row_height*i);
-			ctx.fillText(column,player_width * column-150,row_height*i);	
-			ctx.fillText(row_height,player_width * column-150,row_height*i);	
-			ctx.fillText(players[i*column],player_width * column-150,row_height*i);	
+			ctx.moveTo(player_width * column-150,start_height+row_height*i);
+			ctx.lineTo(player_width * (column+.5)-150,start_height+row_height*i);
+			ctx.fillText(players[i*column],player_width * column-150,start_height+row_height*i);	
 
 			//ctx.lineTo(player_width * (column+2)-150,start_height + (player_height * (i+.5)));
 			ctx.stroke();
 			//diaganol lines
 			if (i%2==0) {
-				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i+1.5)));
+				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i+3)));
 				ctx.stroke();	
 			}else{
 				ctx.lineTo(player_width * (column+1)-150,start_height + (row_height * (i-.5)));
