@@ -33,7 +33,9 @@ class Tournament{
 				for($i=($numberOfPartsNeeded-1);$i>=0;$i--){
 					if($count < 0)
 						break;
-					echo "COUNT " . $count . "<br>" ;
+					echo " COUNT " . $count . "\n" ;
+					echo " I " . $i . "\n" ;
+					
 					if($i > count($participants)-1){
 						$this->db->insert("`Match`" , "EntryID1, EntryID2, Bye, Result, Round" , $participants[$count--]['EntryID'] . " , -1 , 1 , 'FIRST' , 0");
 					}
