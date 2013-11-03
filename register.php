@@ -10,9 +10,9 @@ if(!isset($_GET[id])) {
 	}
 	$result = $db->select("Tournament", "Name, Description, Rules",
 		"TournamentID = '$_GET[id]'", "", "", "1"); // get name, description, and rules
-	echo "<h1>Register for " . $result[0] . "</h1>"; // name
-	echo "<p>" . $result[1] . "</p>"; // description
-	echo "<h3>Rules:</h3><p>" . $result[2] . "</p>";
+	echo "<h1>Register for " . $result[Name] . "</h1>"; // name
+	echo "<p>" . $result[Description] . "</p>"; // description
+	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
 ?>
 <form action="#" method="POST">
   <fieldset>
