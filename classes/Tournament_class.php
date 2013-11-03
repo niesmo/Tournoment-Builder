@@ -4,6 +4,7 @@ class Tournament{
 	
 	public function __construct( $db ){
 		$this->db = $db;
+		echo "Tournament Class Created";
 	}
 	
 	public function newTournament($name, $type, $description, $rules){
