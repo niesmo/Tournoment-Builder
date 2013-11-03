@@ -18,7 +18,7 @@ if(!isset($_GET[id])) {
 	echo "<p>" . $result[Description] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
 
-	$participants =$tournament->getparticipants($_GET[id]);
+	$participants =$tournament->getParticipants($_GET[id]);
 	print_r($participants);
 
 	echo "<h3>Current Participants:</h3><p>" . $participants[] . "</p>";
