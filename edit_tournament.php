@@ -25,10 +25,12 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
         if(count($participants)>0){
                 echo "<h3>Current Participants:</h3><ol>";
                 foreach($participants as $val){
+
                         echo "<li>";
                         echo $val['Name'];
-                        echo "<input class='btn btn-danger' type='submit' name='submit' value='Remove Player' />";
                         echo "</li>\n";
+                        echo "<form action='remove_player.php' method='POST'><input class='btn btn-danger' type='submit' name='submit' value='Remove $val['Name']' /></br></form>";
+                        
                 }        
         }
         else{
