@@ -36,8 +36,7 @@ function merge($a, $b) {
 
 function gen_matches($round, $entryIDs) {
 	for($i=0;$i<count($entryIDs)/2;$i++) {
-		$db->insert("`Match`", "EntryID1, EntryID2, Round, Order", "'$entryIDs[$i*2]', 
-		'$entryIDs[$i*2+1]', '$round', '$i'");
+		echo "'$entryIDs[$i*2]', '$entryIDs[$i*2+1]', '$round', '$i' <br>";
 	}
 }
 ?>
