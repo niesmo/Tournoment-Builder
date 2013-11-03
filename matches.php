@@ -16,7 +16,6 @@ if(!isset($_GET[id])) {
 		</tr>
 	</thead>
 	<tbody>
-	<?} // end foreach ?>
 	</tbody>
 </table>
 <?} include("inc/footer.php"); ?>
