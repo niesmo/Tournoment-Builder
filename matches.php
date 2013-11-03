@@ -18,7 +18,9 @@ if(!isset($_GET[id])) {
 	<tbody>
 <? $matches = $db->select("`Match`", "EntryID1, EntryID2, Result",
 		"TournamentID = $_GET[id]");
-	foreach $matches as $match { ?>
+	foreach $matches as $match { 
+		print_r $match;
+	?>
 		<tr>
 			<td><?echo $match[0]?></td>
 			<td><?echo $match[1]?></td>
