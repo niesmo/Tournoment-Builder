@@ -11,14 +11,5 @@ if(!isset($_GET["id"])) {
 <? 	$matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
 	"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2",
 	"MatchID");
-foreach($matches as $match) {print_r $match["Result"]?>
-
-		<?if($match["Result"] == "") { // match in progress	
-
-		} else {
-
-		}
-
-<?} // end foreach ?>
 
 <?} include("inc/footer.php"); ?>
