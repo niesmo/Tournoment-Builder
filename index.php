@@ -11,22 +11,16 @@
           
       <?php 
       $list_of_tournaments = $db->select("Tournament","*");
-      echo "<pre>";
-      //print_r($list_of_tournaments);
-      echo "</pre>";
-      foreach ($list_of_tournaments as $key => $value){
-            //print_r($value);
-            echo $value[Name];
-      }
-      echo "<h1>TEST ".$list_of_tournaments[0][1]."</h1>";
+   
+      
       for ($x=0; $x<9; $x++)
       {
         if ((($x+1)%3)==0) {
           echo "<div class='row-fluid'>";
         }
         echo "<div class='span4'>";
-              echo "<h2>Tournament:" . $list_of_tournaments[0][$x][1]." </h2>";
-              echo "<p>Tournament Description:". $list_of_tournaments[0][$x][5] ." </p>";
+              echo "<h2>Tournament:" . $list_of_tournaments[$x][Name]." </h2>";
+              echo "<p>Tournament Description:". $list_of_tournaments[$x][Description] ." </p>";
               echo "<p><a class='btn' href='#'>View details &raquo;</a></p>";
         echo "</div>";
         if ((($x+1)%3)==0) {
