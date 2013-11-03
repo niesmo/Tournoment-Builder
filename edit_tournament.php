@@ -53,7 +53,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
 	<select name="type">
-	  <option value="SINGLE">Single Elimination</option>
+	  <option value="SINGLE" selected>Single Elimination</option>
 	  <option value="DOUBLE">Double Elimination</option>
 	  <option value="ELO">Elo Ranking System</option>
 	  <option value="MTG">Tournament Inspired by MtG</option>
