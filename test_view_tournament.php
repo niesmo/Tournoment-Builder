@@ -45,7 +45,7 @@ var player_width = 150;
 //build structure
 function drawLines(num_row,column){
 	var row_height = (player_height * column);
-	var start_height = (player_height * (column-1))*2 -(player_height*.5);
+	var start_height = (player_height * (column-1)*2) -(player_height*.5);
 
 
 	if(num_row==1){
@@ -64,6 +64,8 @@ function drawLines(num_row,column){
 			ctx.strokeStyle = '#000000';
 			ctx.moveTo(player_width * column-150,row_height*i);
 			ctx.lineTo(player_width * (column+.5)-150,row_height*i);
+			ctx.fillText(column,player_width * column-150,row_height*i);	
+			ctx.fillText(row_height,player_width * column-150,row_height*i);	
 			ctx.fillText(players[i*column],player_width * column-150,row_height*i);	
 
 			//ctx.lineTo(player_width * (column+2)-150,start_height + (player_height * (i+.5)));
