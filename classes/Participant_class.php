@@ -10,7 +10,7 @@ class Participant{
         }
         
         public function removeParticipant($participant_id){
-                return $this->db->delete("Participant",  "ParticipantID = $particpant");
+                return $this->db->delete("Participant",  "ParticipantID = $participant_id");
         }
         
 }
