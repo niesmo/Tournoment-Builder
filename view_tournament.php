@@ -10,9 +10,11 @@ if(!isset($_GET['id'])) {
 		"TournamentID = $t_id")[0]; // get the goods
 
 	$participants =$tournament->getParticipants($t_id);
+
 	//$matches =$tournament->getMatches($t_id);
 	//print_r($participants);
 	$num_participants = count($participants);
+
 }
 	?>
 <canvas id="myCanvas" width="100%" height="100%">
@@ -39,20 +41,28 @@ var player_width = 150;
 
 	for(var j=1;j<=num_participants; j++) {
 		ctx.fillText(players[j-1],10,player_height * j);
-		ctx.moveTo(10,player_height * j);
-		ctx.lineTo(150,player_height * j);
+		ctx.moveTo(10,player_height * j - 5);
+		ctx.lineTo(150,player_height * j -5);
 		ctx.stroke();	
 		if(j%2==0){
 			//if result = First -> Green
-			ctx.moveTo(player_width,player_height * j);
+			ctx.moveTo(player_width,player_height * j -5);
 			ctx.lineTo(player_width * (2),player_height * (j-.5));
+			ctx.stroke();
+			ctx.lineTo(player_width * (3),player_height * (j-.5));
+			ctx.stroke();
+			ctx.lineTo(player_width * (3),player_height * (j-1.5));
 			ctx.stroke();	
+			ctx.lineTo(player_width * (4),player_height * (j-1.5));
+			ctx.stroke();
 		}
 		else{
 			//if result = Second -> Green
-			ctx.moveTo(player_width,player_height * j);
+			ctx.moveTo(player_width,player_height * j -5);
 			ctx.lineTo(player_width * (2),player_height * (j+.5));
 			ctx.stroke();		
+			ctx.lineTo(player_width * (3),player_height * (j+1.5));
+			ctx.stroke();
 		}
 		
 	}
