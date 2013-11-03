@@ -9,7 +9,7 @@ if(!isset($_GET[id])) {
 		$db->insert("Entry", "TournamentID, ParticipantID", "'$_GET[id]', '$Id'");
 	}
 	$result = $db->select("Tournament", "Name, Description, Rules",
-		"TournamentID is '$_GET[id]'", "", "", "1"); // get name, description, and rules
+		"TournamentID = '$_GET[id]'", "", "", "1"); // get name, description, and rules
 	echo "<h1>Register for " . $result[0] . "</h1>"; // name
 	echo "<p>" . $result[1] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result[2] . "</p>";
