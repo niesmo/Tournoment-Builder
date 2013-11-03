@@ -66,6 +66,7 @@ class Database {
 		$this->query ($q);
                 
  //             return mysqli_fetch_array(MYSQLI_ASSOC);
+		$a = [];
 		while ( $entry = $this->fetchNextObject () )
 			$a [] = $entry;
 		return $a;
