@@ -13,7 +13,7 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 		if($db->select("`Match` as m , Entry as e", "COUNT(*)",
 		"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) 
 		AND e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND 
-		m.Result != null")[0]['COUNT(*)'] == 0) { // all results in from previous round
+		m.Result IS NULL")[0]['COUNT(*)'] == 0) { // all results in from previous round
 			if($_GET['round'] >= ceil(log(count($initialEntries), 2))) // final round
 				$db->update("Tournament", "Status='CLOSE'", "TournamentID='$_GET[id]'");
 			else {
