@@ -5,7 +5,7 @@ includeHeader("Administration Panel");?>
 <?if(!isset($_GET["id"])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	$result = $db->select("Tournament", "Name, Description, Status",
+	$result = $db->select("Tournament", "Name, Description, Status, Winner",
 		"TournamentID = $_GET[id]")[0];
 	echo "<h1>Administrative options for " . $result["Name"] . "</h1>";
 	echo "<p>" . $result["Description"] . "</p>";
@@ -41,7 +41,7 @@ includeHeader("Administration Panel");?>
 	<h1>Edit Options, Close Registration</h1>
 <?} else {?>
 	<h3>Tournament has ended</h3>
-	<h4>Winner: </h4
+	<h4>Winner: <?echo $result['Winner']?></h4>
 <?}}?>
 	</div>
 </div>
