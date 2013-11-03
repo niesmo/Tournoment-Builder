@@ -25,9 +25,9 @@ else
 		if(count($participants)>0){
 				echo "<h3>Current Participants:</h3><table>";
 				$counter = 1;
-				//foreach($participants as $val){
-				//	echo "<tr><td>". ($counter+=1) .". </td><td>".$val['Name']."</td><td><i class='icon-remove'></i></td></tr>";
-				//}  
+				foreach($participants as $val){
+					echo "<tr><td>". ($counter+=1) .". </td><td>".$val['Name']."</td><td><i class='icon-remove'></i></td></tr>";
+				}  
 				echo "</table>";				
 		}
 		else{
@@ -35,7 +35,7 @@ else
 		}
 
 		
-	</div><div class='span6'>";
+	echo "</div><div class='span6'>";
 }
 ?>
 
