@@ -7,7 +7,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
 
 	if(isset($_POST['submit'])){
-		echo "In the submit if<br>";
+
 		$db->insert("Participant", "Name", "'$_POST[name]'");
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$t_id, $id");

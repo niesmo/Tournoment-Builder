@@ -5,12 +5,9 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 } else {
 
 	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
-
 	if(isset($_POST['submit'])){
-		echo "In the submit if<br>";
-		$db->insert("Participant", "Name", "'$_POST[name]'");
-		$id = $db->lastInsertedId(); // get ParticipantID
-		$db->insert("Entry", "TournamentID, ParticipantID", "$t_id, $id");
+		$db->update("Tournament", "Name='$_POST[name]'","TournamentID=$t_id");
+		
 	}?>
       <div class="row-fluid">
         <div class="span6">
