@@ -9,7 +9,7 @@ class Tournament{
 	
 	public function newTournament($name, $type, $description, $rules){
 		$now = date("Y-m-d H:i:s"); 
-	        return $db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
+	        return $this->db->insert("Tournament", "Name, Type, StartDate, Status, Description, Rules",
 	                "'$name', '$type', '$now', 'OPEN', '$description', '$rules'");
 	}
 }
