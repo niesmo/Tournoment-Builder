@@ -40,7 +40,6 @@ includeHeader("Administration Panel");?>
 		</tbody>
 	</table>
 <?} elseif($result["Status"] == "OPEN") {?>
-	<h1>TODO: Edit Options</h1>
 	<button class="btn" onclick="progressTournament(<?=$_GET["id"]?>)">Close Registration</button>
 <?} else {?>
 	<h3>Tournament has ended</h3>
