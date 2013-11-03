@@ -45,7 +45,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
     <h2 class="form-signin-heading">Add Player</h2>
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="name" type="text" placeholder="Participant Name"/>
-	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
+	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Add Player" />
   </fieldset>
 </form>
 </div>
@@ -55,9 +55,21 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
     <h2 class="form-signin-heading"><? echo $result['Name']; ?></h2>
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
-	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
+	<select name="type">
+	  <option value="SINGLE">Single Elimination</option>
+	  <option value="DOUBLE">Double Elimination</option>
+	  <option value="ELO">Elo Ranking System</option>
+	  <option value="MTG">Tournament Inspired by MtG</option>
+	</select><br>
+	<textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
+				<textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
+	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Edit Tournament Details" />
   </fieldset>
 </form>
+
+
+
+
 </div>
 </div>
 <?require_once("inc/footer.php")?>
