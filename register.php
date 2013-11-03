@@ -5,9 +5,9 @@ if(!isset($_GET[id])) {
 } else {
 	if($_POST[submit]){
 		$db->insert("Participant", "Name", "'$_POST[name]'");
-		$Id = $db->lastInsertedId(); // get ParticipantID
-		echo "Test $Id ";
-		$db->insert("Entry", "TournamentID, ParticipantID", "'$_GET[id]', '$Id'");
+		$id = $db->lastInsertedId(); // get ParticipantID
+		echo "Test $id <br>";
+		$db->insert("Entry", "TournamentID, ParticipantID", "'$_GET[id]', '$id'");
 	}
 	$result = $db->select("Tournament", "Name, Description, Rules",
 		"TournamentID = $_GET[id]")[0]; // get name, description, and rules
