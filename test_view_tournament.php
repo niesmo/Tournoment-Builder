@@ -89,7 +89,7 @@ function drawLines(num_row,column){
     // update
 
     // clear
-    context.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.canvas.width  = window.innerWidth;
 	ctx.canvas.height = window.innerHeight;
     drawLines(num_buckets,1);
