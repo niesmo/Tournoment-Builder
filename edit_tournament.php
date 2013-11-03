@@ -40,7 +40,7 @@ else
 	}
 	?>
 	
-	
+      <?if($result['MaxPlayer'] > count($participants)){?>
 	<form action="register.php" method="POST">
 	  <fieldset>
 	    <h2 class="form-signin-heading">Add Player</h2>
@@ -48,7 +48,9 @@ else
 	        <input name="name" type="text" placeholder="Participant Name"/><br>
 	        <input class="btn btn-primary btn-large" type="submit" name="submit" value="Add Player" />
 	  </fieldset>
-	</form>
+	</form><?}else{
+		echo "<p>Tournament is FULL!</p>";
+	}?>
 	</div>
 	<div class='span6'>
 	<form action="edit_tournament.php" method="POST">
