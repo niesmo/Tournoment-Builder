@@ -2,12 +2,20 @@
 require_once("conf/config.php");
 include("inc/header.php");
 if(isset($_POST['submit'])){
-	$tournament->newTournament($_POST['name'], $_POST['type'], $_POST['description'], $_POST['rules']);
+	$id = $tournament->newTournament($_POST['name'], $_POST['type'], $_POST['description'], $_POST['rules']);
+	if($id == -1){
+		$msg = "<div class='alert alert-error'><p>Something went wrong! Try Again</p></div>";
+	}
+	else{
+		$msg = "<div class='alert alert-success'><p>Your tournament has successfully been created!</p></div>";
+		$msg . "<p>The link for your tournament is <a href='resgister.php?id=$id'>$PATH.'register.php?$id'</a></p>";
+	}
 }
 ?>
 <div class="container">
 	<div class="row-fluid">
 	        <div class="span6">
+	        	<?if(isset($msg)) echo $msg;?>
 			<form action="#" method="POST" class="form-signin">
 			  <fieldset>
 			    <h2 class="form-signin-heading">Create a tournament</h2>
