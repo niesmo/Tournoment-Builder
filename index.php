@@ -12,7 +12,7 @@
       <?php 
       $list_of_tournaments = $db->select("Tournament","*");
       echo "<pre>";
-      print_r($list_of_tournaments);
+      //print_r($list_of_tournaments);
       echo "</pre>";
       foreach ($list_of_tournaments as $key => $value){
             echo "TEST $value";     
