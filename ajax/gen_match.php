@@ -12,11 +12,11 @@ if(isset($_GET['round']) && isset($_GET['id'])) {
 			if($_GET['round'] >= ceil(log(count($initialEntries), 2))) // final round
 				$db->update("Tournament", "Status='CLOSE'", "TournamentID='$_GET[id]'");
 			else {
-				$first = db->select("`Match` as m , Entry as e", "EntryID1",
+				$first = $db->select("`Match` as m , Entry as e", "EntryID1",
 				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
 				e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND
 				m.Result = 'FIRST'", "MatchID");
-				$second = db->select("`Match` as m , Entry as e", "EntryID2",
+				$second = $db->select("`Match` as m , Entry as e", "EntryID2",
 				"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND 
 				e.TournamentID = '$_GET[id]' AND m.Round = $_GET[round]-1 AND
 				m.Result = 'SECOND'", "MatchID");
