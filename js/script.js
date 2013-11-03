@@ -1,4 +1,4 @@
-function removeParticipant(part_id){
+function removeParticipant(part_id ){
 	$.ajax({
 		url:'ajax/remove_participant.php',
 		type: 'POST',

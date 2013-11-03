@@ -20,7 +20,7 @@ class Database {
 		return $table_exists;
 	}
 	public function query($query) {
-		echo "this is the last query : $query <br />";
+		//echo "this is the last query : $query <br />";
 		$this->lastResult = mysqli_query ( $this->connection, $query );
                 if ($this->lastResult == false && $this->debug)
                     echo "$query is a BAD QUERY!!!";
