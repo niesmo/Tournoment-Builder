@@ -52,7 +52,7 @@ function gen_matches($round, $entryIDs, $db) {
 		$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
 		$entryIDs[$i*2].", ".$entryIDs[$i*2+1].", $round, $i");
 		if($entryIDs[$i*2+1] == -1) { // set result for bye
-			$db->update("`Match`", "Result='FIRST'", "MatchID=".db->lastInsertedId());
+			$db->update("`Match`", "Result='FIRST'", "MatchID=".$db->lastInsertedId());
 		}
 	}
 }
