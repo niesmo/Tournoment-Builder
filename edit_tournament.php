@@ -26,7 +26,7 @@ else
 				echo "<h3>Current Participants:</h3><ol>";
 				foreach($participants as $val){
 						echo "<li>";
-						echo "<i class='icon-remove'></i>" . $val['Name'];
+						echo $val['Name'] . "<i class='icon-remove'></i>";
 						echo "</li>\n";
 				}        
 		}
