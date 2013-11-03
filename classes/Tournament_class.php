@@ -51,7 +51,8 @@ class Tournament{
         }
         
         public function getTournamentID($matchID){
-        	$entry  = $this->db->select("`Match` as m, Entry as e" , "EntryID" , "m.EntryID1 = e.EntryID" , "" , "", 1);
+        	$entry  = $this->db->select("`Match` as m, Entry as e" , "e.EntryID" , "e.EntryID = m.EntryID1 AND m.MatchID = $matchID" , "" , "", 1);
+        	print_r($entry);
         	$entry = $entry['EntryID'];
         	echo "ENTRY : " . $entry . "\n";
         	
@@ -60,4 +61,7 @@ class Tournament{
         }
         
 }
+//SELECT e.EntryID FROM `Match` as m, Entry as e WHERE e.EntryID = m.EntryID1 AND m.MatchID = 171;
+//SELECT e.TournamentID FROM Tournament as t, Entry as e WHERE t.TournamentID = e.TournamentID AND e.EntryID = 67;
+
 ?>
