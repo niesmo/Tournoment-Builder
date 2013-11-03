@@ -49,8 +49,11 @@ class Tournament{
         	$t_id = $this->getTournamentID($matchID);
         	//Adding the result
         	$db->update("`Match`", "Result = '$result'", " MatchID = $matchID");
-        	//check and see if there is any match left
-        	
+        	$matchLeft = $this->matchesLeft($t_id);
+        	if(count($matchLeft) == 0){
+        		$round = $this->getRound($t_id);
+        		
+        	}
         	
         }
         
@@ -67,6 +70,19 @@ class Tournament{
         public function matchesLeft($tournamentID , $fields = "*"){
         	return $this->db->select("Entry as e, `Match` as m" , $fields , "(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = $tournamentID AND Result IS NULL" , "MatchID");
         	// SELECT * FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Result IS NULL;
+
+        }
+        
+        public function getRound($tournamentID){
+        	$data = $this->db->select("Entry as e, `Match` as m" , "Round" , "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Result IS NOT NULL" , "" ,"" , 1);
+        	return $data['Round'];
+        	//SELECT Round FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Result IS NOT NULL LIMIT 1;
+
+        }
+        public function getNumberOfMatchesInRound($tournamentID , $round ){
+        	$data = $this->db->select("Entry as e, `Match` as m" , "COUNT(*) as c" ,  "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Round = $round");
+        	return $data['c'];
+        	//SELECT COUNT(*) as c FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Round = 0;
 
         }
         
