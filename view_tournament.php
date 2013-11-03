@@ -49,6 +49,7 @@ function drawLines(num_row,column){
 		ctx.fillText("Winner",player_width * column,start_height);
 		ctx.moveTo(player_width * column, start_height);
 		ctx.lineTo(player_width * (column +1),start_height);
+		ctx.strokeStyle = '#ff0000';
 		ctx.stroke();
 	}
 	else{
@@ -59,9 +60,11 @@ function drawLines(num_row,column){
 			ctx.stroke();
 			//diaganol lines
 			if (num_row%2==0) {
+				ctx.strokeStyle = '#000ff0';
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5)));
 				ctx.stroke();	
 			}else{
+				ctx.strokeStyle = '#ff0000';
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i-.5)));
 				ctx.stroke();	
 			}
