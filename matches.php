@@ -38,7 +38,8 @@ includeHeader("Administration Panel");?>
 		</tbody>
 	</table>
 <?} elseif($result["Status"] == "OPEN") {?>
-	<h1>Edit Options, Close Registration</h1>
+	<h1>TODO: Edit Options</h1>
+	<button class="btn">Close Registration</button>
 <?} else {?>
 	<h3>Tournament has ended</h3>
 	<h4>Winner: <?echo $result['Winner']?></h4>
