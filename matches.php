@@ -21,6 +21,9 @@ includeHeader("Administration Panel");?>
 	<? 	$matches = $db->select("`Match` as m , Entry as e, Participant as p", "m.MatchID, EntryID1, EntryID2, Result, p.Name",
 		"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) AND e.TournamentID = '$_GET[id]'",
 		"MatchID");
+		echo "<pre>";
+		print_r($matches);
+		echo "</pre>";
 	foreach($matches as $match) {
 			$part_1 = $participant->getParticipantInfo($match['EntryID1']);
 			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
@@ -29,7 +32,8 @@ includeHeader("Administration Panel");?>
 			<?if($match["Result"] == "") { // match in progress ?>
 				<td><button class="btn" onclick ="submitResult(<?=$match['MatchID']?> , 'FIRST' , <?=$_GET[id]?>)"><?echo $part_1['Name']?></button></td>
 				<td><button class="btn" onclick ="submitResult(<?=$match['MatchID']?> , 'SECOND', <?=$_GET[id]?>)"><?echo $part_2['Name']?></button></td>
-			<?} else {?>
+			<?} else {
+				echo $match["Result"];?>
 				<td <?if($match["Result"] == "FIRST") echo "class='bg-green'";?>><?echo $part_1['Name']?></td>
 				<td <?if($match["Result"] == "SECOND") echo "class='bg-green'";?>><?echo $part_2['Name']?></td>
 			<?}?>
