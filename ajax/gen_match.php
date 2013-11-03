@@ -14,7 +14,7 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 				e.TournamentID = '$_GET[id]' AND m.Round = $round-1")[0];
 			print_r($lastMatch);
 			$winnerID = $lastMatch[$lastMatch['Result'] == 'FIRST' ? 'EntryID1' : 'EntryID2'];
-			$winner = $participant->getParticipantInfo($winnerID);
+			$winner = $participant->getParticipantInfo($winnerID)['Name'];
 			$db->update("Tournament", "Status='CLOSE', Winner='$winner'", "TournamentID='$_GET[id]'");
 		} else {
 			$first = $db->select("`Match` as m , Entry as e", "EntryID1",
