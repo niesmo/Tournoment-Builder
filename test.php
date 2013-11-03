@@ -1,6 +1,6 @@
 <?
 require_once("conf/config.php");
-require_once("inc/header.php");
+includeHeader("test");
 ?>
       <div class="row-fluid">
         <div class="span12">
