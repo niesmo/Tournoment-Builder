@@ -13,7 +13,7 @@ if(!isset($_GET['id'])) {
 	//$matches =$tournament->getMatches($t_id);
 	//print_r($participants);
 	$num_participants = count($participants);
-
+}
 	?>
 <canvas id="myCanvas" width="100%" height="100%">
 Your browser does not support the HTML5 canvas tag.</canvas>
