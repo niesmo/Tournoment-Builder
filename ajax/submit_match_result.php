@@ -1,8 +1,12 @@
 <?include("../conf/config.php");
+if($db->isConnected()){
+	echo "Connected";
+}
 if(isset($_POST["result"]) && isset($_POST["MatchID")) {
-	if($db->update("`Match`", "Result = '$_POST[result]'", " MatchID = $_POST[MatchID]") == 1)
-	  echo "SUCCESS";
-	else
-	  echo "FAILED";
+	print_r($_POST);
+	//if($db->update("`Match`", "Result = '$_POST[result]'", " MatchID = $_POST[MatchID]") == 1)
+	 // echo "SUCCESS";
+	//else
+	 // echo "FAILED";
 }
 ?>
