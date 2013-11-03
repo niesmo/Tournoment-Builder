@@ -6,15 +6,8 @@ if(!isset($_GET['id'])) {
 
 	$t_id = $_GET['id'];
 
-?>
-    <div class="row-fluid">
-    <div class="span12">
-	<?
 	$result = $db->select("Tournament", "*",
-		"TournamentID = $t_id")[0]; // get name, description, and rules
-	echo "<h1>" . $result['Name'] . "</h1>"; // name
-	echo "<p>" . $result['Description'] . "</p>"; // description
-	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
+		"TournamentID = $t_id")[0]; // get the goods
 
 	$participants =$tournament->getParticipants($t_id);
 	//$matches =$tournament->getMatches($t_id);
@@ -48,37 +41,17 @@ var player_width = ctx.canvas.width/3;
 		ctx.fillText(players[j-1],10,player_height * j);
 		if(j%2==0){
 			ctx.moveTo(player_width,player_height * j);
-			ctx.lineTo(player_width * (2),player_height * (j+1));
+			ctx.lineTo(player_width * (2),player_height * (j-1));
 			ctx.stroke();	
 		}
 		else{
 			ctx.moveTo(player_width,player_height * j);
-			ctx.lineTo(player_width * (2),player_height * (j-1));
+			ctx.lineTo(player_width * (2),player_height * (j+1));
 			ctx.stroke();		
 		}
 		
 	}
 
 </script>
-<?
-	if($num_participants>0){
-		echo "<h3>Current Participants:</h3>";
 
-		if($num_participants==4){
-			echo "<h3>4 Participants:</h3>";			
-		}
-		foreach($participants as $val){
-			echo "<li>";
-			echo $val['Name'];
-			echo "</li>\n";
-		}	
-	}
-	else{
-		echo "<h3>No Participants</h3>";
-	}
-}
-?>
-
-</div>
-</div>
 <?require_once("inc/footer.php")?>
