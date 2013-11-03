@@ -50,11 +50,12 @@ function gen_matches($round, $entryIDs, $db) {
 	print_r($entryIDs);
 	for($i=0;$i<count($entryIDs)/2;$i++) {
 		//echo $i;
-		//$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
-		//$entryIDs[$i*2]. ", ".$entryIDs[$i*2+1].", $round, $i");
+		$db->insert("`Match`", "EntryID1, EntryID2, Round, `Order`",
+		$entryIDs[$i*2] . ", ".$entryIDs[$i*2+1].", $round, $i");
+		$id = $db->lastInsertedId();
 		if($entryIDs[$i*2+1] == -1) { // set result for bye
-			echo $i*2+1;
-			//$db->update("`Match`", "Result='FIRST'", "MatchID=".$db->lastInsertedId());
+			//echo $i*2+1;
+			$db->update("`Match`", " Result='FIRST' ", " MatchID = $id " );
 		}
 	}
 }
