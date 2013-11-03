@@ -34,8 +34,8 @@ includeHeader("Administration Panel");?>
 				<td><button class="btn" onclick ="submitResult(<?=$match['MatchID']?> , 'SECOND', <?=$_GET[id]?>)"><?echo $part_2['Name']?></button></td>
 			<?} else {
 				echo $match["Result"];?>
-				<td <?if($match["Result"] == "FIRST") echo "class='bg-green'";?>><?echo $part_1['Name']?></td>
-				<td <?if($match["Result"] == "SECOND") echo "class='bg-green'";?>><?echo $part_2['Name']?></td>
+				<td <?if($match["Result"] == "FIRST") echo "style=' background-color: #79F27B; '";?>><?echo $part_1['Name']?></td>
+				<td <?if($match["Result"] == "SECOND") echo "style=' background-color: #79F27B; '";?>><?echo $part_2['Name']?></td>
 			<?}?>
 			</tr>
 	<?} // end foreach ?>
