@@ -23,8 +23,8 @@ if(!isset($_GET["id"])) {
 foreach($matches as $match) {?>
 		<tr>
 		<?if($match["Result"] == "") { // match in progress
-			$part_1 = $participant->getParticipantInfo($match['EntryID1']);
-			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
+			$part_1 = $participant->getParticipantInfo($match['EntryID1'])['Name'];
+			$part_2 = $participant->getParticipantInfo($match['EntryID2'])['Name'];
 		
 			echo "test ";
 			print_r($part_1);
