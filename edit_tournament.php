@@ -6,7 +6,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 
 	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
 	if(isset($_POST['submit'])){
-		$db->update("Tournament", "Name='$_POST[tournament_name]'","TournamentID=$t_id");
+		$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]'","TournamentID=$t_id");
 		
 	}?>
       <div class="row-fluid">
