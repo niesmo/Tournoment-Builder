@@ -6,13 +6,13 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 
 	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
 	if(isset($_POST['submit'])){
-		$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]'","TournamentID=$t_id");
+		$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]', Status='$_POST[status]'","TournamentID=$t_id");
 		
 	}?>
       <div class="row-fluid">
         <div class="span6">
 	<?
-	$result = $db->select("Tournament", "Name, Description, Rules",
+	$result = $db->select("Tournament", "Name, Description, Rules, Type, Status",
 		"TournamentID = $t_id")[0]; // get name, description, and rules
 	echo "<h1>" . $result['Name'] . "</h1>"; // name
 	echo "<p>" . $result['Description'] . "</p>"; // description
@@ -53,11 +53,17 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
 	<select name="type">
-	  <option value="SINGLE" selected>Single Elimination</option>
-	  <option value="DOUBLE">Double Elimination</option>
-	  <option value="ELO">Elo Ranking System</option>
-	  <option value="MTG">Tournament Inspired by MtG</option>
-	</select><br>
+	  <option value="SINGLE" <? ($result['Type']='SINGLE')?echo 'selected':; ?>>Single Elimination</option>
+	  <option value="DOUBLE" <? ($result['Type']='DOUBLE')?echo 'selected':; ?>>Double Elimination</option>
+	  <option value="ELO" <? ($result['Type']='ELO')?echo 'selected':; ?>>Elo Ranking System</option>
+	  <option value="MTG" <? ($result['Type']='MTG')?echo 'selected':; ?>>Tournament Inspired by MtG</option>
+	</select>
+	<select name="status">
+	  <option value="OPEN" <? ($result['Status']='OPEN')?echo 'selected':; ?>>Open</option>
+	  <option value="INPROGRESS" <? ($result['Status']='INPROGRESS')?echo 'selected':; ?>>In-Progress</option>
+	  <option value="ClOSE" <? ($result['Status']='CLOSE')?echo 'selected':; ?>>Closed</option>
+	</select>
+	<br>
 	<textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
 				<textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Edit Tournament Details" />
