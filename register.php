@@ -1,9 +1,9 @@
 <? include("conf/config.php");
 include("inc/header.php");
-if(!isset('$_GET[id]')) {
+if(!isset($_GET[id])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	if('$_POST[submit]'){
+	if($_POST[submit]){
 		$db->insert("Participant", "Name", "'$_POST[name]'");
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$_GET[id], $id");
@@ -18,7 +18,7 @@ if(!isset('$_GET[id]')) {
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
 	$participants =$tournament->getParticipants('$_GET[id]');
-	print_r($participants);
+	// print_r($participants);
 
 	echo "<h3>Current Participants:</h3><ol>";
 	foreach($participants as $val){
