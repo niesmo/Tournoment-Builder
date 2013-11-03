@@ -43,8 +43,10 @@ var player_width = 150;
 	}?>
 var my_match = new Array();
 	<? foreach($matches as $value){
-		echo "my_match.push( '" . $value['EntryID1'] . "');";
-		echo "my_match.push( '" . $value['EntryID2'] . "');";
+		echo "my_match['EntryID1']=" . $value['EntryID1'] . ";";
+		echo "my_match['EntryID2']=" . $value['EntryID2'] . ";";
+		echo "my_match['Order']=" . $value['Order'] . ";";
+		echo "my_match['Round']=" . $value['Round'] . ";";
 	}?>
 
 //build structure
@@ -59,18 +61,19 @@ function drawLines(num_row,column){
 	}
 	else{
 		for(var i=0;i<num_row;i++){
-			ctx.fillText(num_row,player_width * column,start_height);
+			
 			ctx.moveTo(player_width * column,start_height + (player_height * i) +5);
 			ctx.lineTo(player_width * (column+1),start_height + (player_height * i)+5);
 			ctx.stroke();
 			//diaganol lines
 			if (i%2==0) {
 				ctx.strokeStyle = '#000000';
-				
+				ctx.fillText(my_match['EntryID1'],player_width * column,start_height + (player_height * i) +5);	
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5)));
 				ctx.stroke();	
 			}else{
 				ctx.strokeStyle = '#ff0000';
+				ctx.fillText(my_match['EntryID2'],player_width * column,start_height + (player_height * i) +5);	
 				ctx.fillText(start_height + (player_height * (i-.5)),player_width * (column+2),start_height + (player_height * (i-.5)));
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i-.5)));
 				ctx.stroke();	
