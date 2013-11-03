@@ -34,4 +34,5 @@ private function merge($a, $b) {
 
 private function gen_matches($round, $entryIDs) {
 	print_r($entryIDs);
+}
 ?>
