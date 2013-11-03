@@ -41,7 +41,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Tournament Builder</a>
+          <a class="brand" href="http://masterme120.chronos.feralhosting.com/hackathon/dev/">Tournament Builder</a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
               Logged in as <a href="#" class="navbar-link">Username</a>

@@ -19,9 +19,9 @@
           echo "<div class='row-fluid'>";
         }
         echo "<div class='span4'>";
-              echo "<h2>Tournament:" . $list_of_tournaments[$x][Name]." </h2>";
-              echo "<p>Tournament Description:". $list_of_tournaments[$x][Description] ." </p>";
-              echo "<p><a class='btn' href='#'>View details &raquo;</a></p>";
+        echo "<h4><a href=\"view_tournament.php?". $list_of_tournaments[$x][id]. "\">". $list_of_tournaments[$x][Name]." </a></h4>";
+        echo "<p>Tournament Description:". $list_of_tournaments[$x][Description] ." </p>";
+        echo "<p><a class='btn' href='#'>View details &raquo;</a></p>";
         echo "</div>";
         if ((($x+1)%3)==0) {
           echo "</div> <!--/row-->";
