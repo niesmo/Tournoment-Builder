@@ -29,8 +29,8 @@ if(!isset($_GET["id"])) {
 				<td><button class="btn"><?echo $part_2['Name']?></button></td>
 				<td><i>Awaiting Results</i></td>
 			<?} else {?>
-				<td><?echo $part_1['Name']?></td>
-				<td><?echo $part_2['Name']?></td>
+				<td <?if($match["Result"] == "FIRST") echo "class='green'";?>><?echo $part_1['Name']?></td>
+				<td <?if($match["Result"] == "SECOND") echo "class='green'";?>><?echo $part_2['Name']?></td>
 				<td><?if($match["Result"] == "FIRST") echo $part_1['Name'];
 				      elseif($match["Result"] == "SECOND") echo $part_2['Name'];?></td>
 				
