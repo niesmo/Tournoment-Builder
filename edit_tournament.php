@@ -23,18 +23,18 @@ else
 		$participants =$tournament->getParticipants($t_id);
 		// print_r($participants);
 		if(count($participants)>0){
-				echo "<h3>Current Participants:</h3><ol>";
+				echo "<h3>Current Participants:</h3><table>";
+				$counter = 1;
 				foreach($participants as $val){
-						echo "<li>";
-						echo "<table><tr><td>$val['Name']</td><td><i class='icon-remove'></i></td></tr></table>";
-						echo "</li>\n";
+					
+					echo "<tr><td>".$counter++.". </td><td>$val['Name']</td><td><i class='icon-remove'></i></td></tr></table>";
 				}        
 		}
 		else{
 				echo "<h3>No Participants</h3>";
 		}
 
-		echo "</ol>
+		echo "</table>";
 	</div><div class='span6'>";
 }
 ?>
