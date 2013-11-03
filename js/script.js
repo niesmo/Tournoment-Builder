@@ -4,7 +4,14 @@ function progressTournament(t_id){
 		type: 'POST',
 		data: {TournamentID :t_id },
 		success: function(data){
-			alert(data);
+			$.ajax({
+				url:'ajax/gen_match.php',
+				type: 'POST',
+				data: {id : t_id },
+				success: function(data){
+					
+				}
+			});
 		}
 	});	
 }
