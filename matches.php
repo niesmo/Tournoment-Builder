@@ -27,7 +27,7 @@ foreach($matches as $match) {?>
 			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
 		
 			echo "test ";
-			print_r( $part_1['Name']);
+			print_r( $part_1);
 		?>
 			//getting the participant info
 			<td><button class="btn"><?echo $part_1?></button></td>
