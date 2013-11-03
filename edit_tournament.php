@@ -15,7 +15,7 @@ else
 		<div class="row-fluid">
 			<div class="span6">
 			<?
-			$result = $db->select("Tournament", "Name, Description, Rules",
+			$result = $db->select("Tournament", "Name, Description, Rules, MaxPlayer",
 					"TournamentID = $t_id")[0]; // get name, description, and rules
 			echo "<h1>" . $result['Name'] . "</h1>"; // name
 			echo "<p>" . $result['Description'] . "</p>"; // description
