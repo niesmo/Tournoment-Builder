@@ -11,16 +11,16 @@ if(!isset($_GET[id])) {
 		$id = $db->lastInsertedId(); // get ParticipantID
 		$db->insert("Entry", "TournamentID, ParticipantID", "$_GET[id], $id");
 	}
-	$result = $db->select("Tournament", "Name, Description, Rules",
-		"TournamentID = $_GET[id]")[0]; // get name, description, and rules
-	echo "<h1>Register for " . $result[Name] . "</h1>"; // name
-	echo "<p>" . $result[Description] . "</p>"; // description
-	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
+	// $result = $db->select("Tournament", "Name, Description, Rules",
+	// 	"TournamentID = $_GET[id]")[0]; // get name, description, and rules
+	// echo "<h1>Register for " . $result[Name] . "</h1>"; // name
+	// echo "<p>" . $result[Description] . "</p>"; // description
+	// echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
 
-	$participants =$tournament->getParticipants($_GET[id]);
-	print_r($participants);
+	// $participants =$tournament->getParticipants($_GET[id]);
+	// print_r($participants);
 
-	echo "<h3>Current Participants:</h3>";
+	// echo "<h3>Current Participants:</h3>";
 }
 ?>
 
@@ -35,4 +35,4 @@ if(!isset($_GET[id])) {
 </form>
 </div>
 </div>
-<?}include("inc/footer.php");?>
+<?include("inc/footer.php");?>
