@@ -2,7 +2,6 @@
 includeHeader("Current Matches");?>
 <div class="container">
 	<div class="row-fluid">
-
 <?if(!isset($_GET["id"])) {
 	echo "Error: No tournament ID supplied";
 } else {
@@ -37,7 +36,7 @@ includeHeader("Current Matches");?>
 	<?} // end foreach ?>
 		</tbody>
 	</table>
-<?}
+<?}?>
 	</div>
 </div>
-include("inc/footer.php"); ?>
+<?include("inc/footer.php"); ?>
