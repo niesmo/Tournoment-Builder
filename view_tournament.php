@@ -35,27 +35,20 @@ ctx.canvas.height = window.innerHeight;
 ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
 ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",10,50);
+
 var players = new Array();
+var player_height = ctx.canvas.height/4;
+var player_width = ctx.canvas.width/3;
 	
 	<? foreach($participants as $val){
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
 	for(var j=0;j<num_participants; j++) {
+		ctx.fillText(players[j],player_width,player_height * j);
 		ctx.moveTo(player_width,player_height * j);
-		ctx.fillText(players[j],10,50);
-		ctx.moveTo(player_width,player_height * j);
+		ctx.lineTo(player_width * (j+1),player_height * (j+1));
+		ctx.stroke();
 	}
-
-if(num_participants==4){
-	player_height = ctx.canvas.height/4;
-	player_width = ctx.canvas.width/3;
-	for(var i = 0;i<4;i++){
-		ctx.moveTo(player_width * i,player_height * i);
-		ctx.lineTo(player_width * (i+1),player_height * (i+1));
-		ctx.stroke();		
-	}
-	
-}
 
 </script>
 <?
