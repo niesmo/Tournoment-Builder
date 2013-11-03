@@ -40,7 +40,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 ?>
 
 <?
-echo count($participants);
+echo $result['MaxPlayer'];
 if($result['MaxPlayer'] < count($participants)){?>
 <form action="register.php" method="POST">
   <fieldset>
