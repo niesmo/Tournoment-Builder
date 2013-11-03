@@ -7,7 +7,6 @@ class Participant{
         }
         public function getParticipantInfo($entry_id , $fields = "*"){
                 if($entry_id == -1){
-                        print_r(array("Name" => "<i>Bye</i>"));
                         return  array("Name" => "<i>Bye</i>");
                 }
                 return $this->db->select("Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.EntryID = $entry_id")[0];
