@@ -9,7 +9,7 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://masterme120.chronos.feralhosting.com/hackathon/dev/js/scrips.js"></script>
+    <script src="http://masterme120.chronos.feralhosting.com/hackathon/dev/js/script.js"></script>
     <script src="http://masterme120.chronos.feralhosting.com/hackathon/dev/js/jquery.js"></script>
     <script src="http://masterme120.chronos.feralhosting.com/hackathon/dev/js/bootstrap-transition.js"></script>
     <script src="http://masterme120.chronos.feralhosting.com/hackathon/dev/js/bootstrap-alert.js"></script>
