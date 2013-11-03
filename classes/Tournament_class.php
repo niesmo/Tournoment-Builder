@@ -26,7 +26,7 @@ class Tournament{
 	}
 	
 	public function closeRegistration($tournament_id){
-		$this->db->update("Tournamet" , "Status = 'PROGRESS'" , "TournamentID = $tournament_id");
+		$this->db->update("Tournament" , "Status = 'PROGRESS'" , "TournamentID = $tournament_id");
 	}
 }
 ?>
