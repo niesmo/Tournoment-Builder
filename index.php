@@ -11,7 +11,7 @@
           <div class="row-fluid">
           
       <?php 
-      $list_of_tournaments = $db->select("Tournament","*");
+      $list_of_tournaments = $db->select("Tournament","*" , "State = 'OPEN'");
    
       
       for ($x=0; $x<9; $x++)
