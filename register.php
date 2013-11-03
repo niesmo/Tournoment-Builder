@@ -19,7 +19,6 @@ if(!isset($_GET[id])) {
 	echo "<h3>Rules:</h3><p>" . $result[Rules] . "</p>";
 
 
-
 	echo "<h3>Current Participants:</h3>";
 ?>
 
