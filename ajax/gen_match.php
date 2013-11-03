@@ -37,8 +37,12 @@ function merge($a, $b) {
 		foreach($a as $array) foreach($array as $key => $value)	$out[] = $value;
 	if($b != [])
 		foreach($b as $array) foreach($array as $key => $value)	$out[] = $value;
-	sort($out);
+	usort($out, 'cmp');
 	return $out;
+}
+
+function cmp($a, $b) {
+	return MD5($a) > MD5($b) ? 1 : -1;
 }
 
 function gen_matches($round, $entryIDs, $db) {
