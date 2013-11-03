@@ -56,7 +56,7 @@ function drawLines(num_row,column){
 	}
 	else{
 		for(var i=0;i<num_row;i++){
-			var row_height = start_height + (player_height * column *i) +5;
+			var row_height = start_height + (player_height * column *i);
 
 			ctx.moveTo(player_width * column-150,row_height);
 			ctx.lineTo(player_width * (column+1)-150,row_height);
