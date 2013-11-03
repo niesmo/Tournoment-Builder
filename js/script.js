@@ -1,4 +1,5 @@
 function submitResult(m_id, res){
+    alert(res);
     $.ajax({
        url:'ajax/submit_match_result.php',
        type: 'POST',
