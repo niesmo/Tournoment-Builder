@@ -24,7 +24,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 var num_participants = <? echo $num_participants; ?>;
 var num_buckets = Math.pow(2,(Math.ceil(Math.log(num_participants)/Math.LN2)));
-alert(num_buckets);
+
 var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
@@ -43,35 +43,57 @@ var player_width = 150;
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
 
-
-	for(var j=1;j<=num_participants; j++) {
-		ctx.fillText(players[j-1],10,player_height * j);
-		ctx.moveTo(10,player_height * j + 5);
-		ctx.lineTo(150,player_height * j +5);
-		ctx.stroke();	
-		if(j%2==0){
-			//if result = First -> Green
-			ctx.moveTo(player_width,player_height * j +5);
-			ctx.lineTo(player_width * (2),player_height * (j-.5));
-			ctx.stroke();
-			ctx.lineTo(player_width * (3),player_height * (j-.5));
-			ctx.stroke();
-			ctx.lineTo(player_width * (4),player_height * (j-1.5));
-			ctx.stroke();	
-			ctx.lineTo(player_width * (5),player_height * (j-1.5));
-			ctx.stroke();
-		}
-		else{
-			//if result = Second -> Green
-			ctx.moveTo(player_width,player_height * j +5);
-			ctx.lineTo(player_width * (2),player_height * (j+.5));
-			ctx.stroke();
-			ctx.moveTo(player_width*3,player_height * j +5);		
-			ctx.lineTo(player_width * (4),player_height * (j+1.5));
-			ctx.stroke();
-		}
-		
+//build structure
+function drawLines(num_row,column){
+	if(num_row==1){
+		ctx.moveTo(player_width * column,player_height * num_row * column);
+		ctx.lineTo(player_width * (column +1),player_height * num_row*column);
+		ctx.stroke();
 	}
+	else{
+		for(var i=0;i<num_row;i++){
+			ctx.moveTo(player_width * column,player_height * i +5);
+			ctx.lineTo(player_width * column+1,player_height * i+5);
+			ctx.stroke();
+			if (num_row%2==0) {
+				ctx.lineTo(player_width * column+1,player_height * (i-.5));
+				ctx.stroke();	
+			};
+		}
+		drawLines(num_row/2,column+2);
+	}
+}
+	drawLines(num_buckets,1);
+
+
+	// for(var j=1;j<=num_participants; j++) {
+	// 	ctx.fillText(players[j-1],10,player_height * j);
+	// 	ctx.moveTo(10,player_height * j + 5);
+	// 	ctx.lineTo(150,player_height * j +5);
+	// 	ctx.stroke();	
+	// 	if(j%2==0){
+	// 		//if result = First -> Green
+	// 		ctx.moveTo(player_width,player_height * j +5);
+	// 		ctx.lineTo(player_width * (2),player_height * (j-.5));
+	// 		ctx.stroke();
+	// 		ctx.lineTo(player_width * (3),player_height * (j-.5));
+	// 		ctx.stroke();
+	// 		ctx.lineTo(player_width * (4),player_height * (j-1.5));
+	// 		ctx.stroke();	
+	// 		ctx.lineTo(player_width * (5),player_height * (j-1.5));
+	// 		ctx.stroke();
+	// 	}
+	// 	else{
+	// 		//if result = Second -> Green
+	// 		ctx.moveTo(player_width,player_height * j +5);
+	// 		ctx.lineTo(player_width * (2),player_height * (j+.5));
+	// 		ctx.stroke();
+	// 		ctx.moveTo(player_width*3,player_height * j +5);		
+	// 		ctx.lineTo(player_width * (4),player_height * (j+1.5));
+	// 		ctx.stroke();
+	// 	}
+		
+	// }
 
 </script>
 
