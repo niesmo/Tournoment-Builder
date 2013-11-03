@@ -15,7 +15,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
       <div class="row-fluid">
         <div class="span6">
 	<?
-	$result = $db->select("Tournament", "Name, Description, Rules",
+	$result = $db->select("Tournament", "Name, Description, Rules,MaxPlayer",
 		"TournamentID = $t_id")[0]; // get name, description, and rules
 	echo "<h1>" . $result['Name'] . "</h1>"; // name
 	echo "<p>" . $result['Description'] . "</p>"; // description
@@ -38,8 +38,6 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "</ol></div><div class='span6'>";
 }
 ?>
-
-
 <form action="register.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading">Register for this tournament</h2>
