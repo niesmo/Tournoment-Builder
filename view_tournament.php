@@ -41,7 +41,9 @@ var players = new Array();
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
 	for(var j=0;j<num_participants; j++) {
-		alert(players[j]);
+		ctx.moveTo(player_width,player_height * j);
+		ctx.fillText(players[j],10,50);
+		ctx.moveTo(player_width,player_height * j);
 	}
 
 if(num_participants==4){
