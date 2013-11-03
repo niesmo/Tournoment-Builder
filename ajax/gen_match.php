@@ -13,6 +13,8 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	}
 } elseif(isset($_GET['id'])) { // first round
 	echo "First round";
+	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]");
+	$initialEntries = merge($initialEntries, []);
 	$byes = pow(2, ceil(log(count($initialEntries), 2)))-count($initialEntries);
 	for($i=0;$i<$byes;$i++) { // award byes
 		array_splice($initialEntries, $i*2+1, 0, [-1]);
