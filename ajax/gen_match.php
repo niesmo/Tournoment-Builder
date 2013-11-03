@@ -1,6 +1,7 @@
 <? include('../conf/config.php');
 if(isset($_GET['round']) && isset($_GET['id'])) {
-	$initialEntries = $db->select("Entry", "COUNT(*)", "TournamentID=$_GET[id]")[0][0];
+	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]")[0][0];
+	print_r($initialEntries);
 	if($_GET['round'] == '0') { // first round: gen from Entry
 		gen_matches(0, merge($initialEntries, []));
 	} else {
