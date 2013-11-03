@@ -6,13 +6,13 @@ else{
 	echo "round and/or id not found in request!";
 }
 
-/*private function merge($a, $b) {
+function merge($a, $b) {
 	$out = array();
 	foreach($a as $array) foreach($array as $key => $value)	$out[] = $value;
 	foreach($b as $array) foreach($array as $key => $value)	$out[] = $value;
 	sort($out);
 	return $out;
-}*/
+}
 
 function gen_matches($round, $entryIDs) {
 	print_r($entryIDs);
