@@ -12,7 +12,7 @@ if(!isset($_GET['id'])) {
 	$participants =$tournament->getParticipants($t_id);
 
 	//$matches =$tournament->getMatches($t_id);
-	//print_r($participants);
+
 	$num_participants = count($participants);
 
 }
@@ -35,7 +35,7 @@ ctx.fillText("<? echo $result['Name']; ?>",window.innerWidth/2,50);
 ctx.fillText(num_buckets,200,100);
 
 var players = new Array();
-var matches = new Array();
+
 var player_height = ctx.canvas.height/6;
 var player_width = 150;
 	
@@ -43,9 +43,6 @@ var player_width = 150;
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
 
-	// <? foreach($matches as $match){
-	// 	echo "matches.push( '" . $match['Result'] . "');";
-	// }?>
 
 	for(var j=1;j<=num_participants; j++) {
 		ctx.fillText(players[j-1],10,player_height * j);
