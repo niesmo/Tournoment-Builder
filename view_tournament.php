@@ -32,7 +32,7 @@ var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
-ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
+ctx.moveTo(100,100);
 ctx.font="40px Arial";
 ctx.fillText("<? $result['Name'] ?>",10,50);
 if(num_participants==4){
