@@ -48,7 +48,7 @@ class Database {
     public function update($tableName, $set, $where="")
 	{
 		$q = "UPDATE $tableName SET $set WHERE $where";
-		//echo $q . "<br />";
+		echo $q . "<br />";
 		return $this->query ( $q );
 	}
     
