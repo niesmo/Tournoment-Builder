@@ -27,7 +27,7 @@ class Tournament{
         
         public function closeRegistration($tournament_id , $fields = "*"){
                 $this->db->update("Tournament" , "Status = 'PROGRESS'" , "TournamentID = $tournament_id");
-				$participants = $this->db->select("Tournament as t, Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.TournamentID = t.TournamentID");
+				$participants = $this->db->select("Tournament as t, Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.TournamentID = t.TournamentID AND e.TournamentID = $tournament_id");
 				$numberOfPartsNeeded = pow(2,ceil(log(count($participants) , 2)));
 				$count = count($participants) -1;
 				for($i=($numberOfPartsNeeded-1);$i>=0;$i--){
