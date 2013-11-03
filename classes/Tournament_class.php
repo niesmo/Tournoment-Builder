@@ -61,7 +61,8 @@ class Tournament{
         		if($n==1){
         			$this->db->update("Tournament" , "Status = 'CLOSE'" , "TournamentID = $t_id");
         			$winnerInfo = $this->db->select("Entry as e, Participant as p" , "p.Name" , "e.EntryID = ".$winner[0][EntryID]." AND e.ParticipantID = p.ParticipantID");
-        			print_r($winnerInfo);
+        			echo "WINNER";
+        			//print_r($winnerInfo);
         			$this->db->update("Tournament" , "Winner = '".$winnerInfo[0][Name]."'" , "TournamentID = $t_id");
         		}
           		//print_r($winner);
