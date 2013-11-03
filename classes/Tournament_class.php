@@ -46,7 +46,8 @@ class Tournament{
 		}
         }
         public function submitMatch($matchID, $result){
-        	
+        	$t_id = $this->getTournamentID($matchID);
+        	echo $t_id;
         }
         
         public function getTournamentID($matchID){
