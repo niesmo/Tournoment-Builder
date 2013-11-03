@@ -1,6 +1,9 @@
 <? include("conf/config.php");
-includeHeader("Current Matches");
-if(!isset($_GET["id"])) {
+includeHeader("Current Matches");?>
+<div class="container">
+	<div class="row-fluid">
+
+<?if(!isset($_GET["id"])) {
 	echo "Error: No tournament ID supplied";
 } else {
 	$result = $db->select("Tournament", "Name, Description",
@@ -35,4 +38,6 @@ if(!isset($_GET["id"])) {
 		</tbody>
 	</table>
 <?}
+	</div>
+</div>
 include("inc/footer.php"); ?>
