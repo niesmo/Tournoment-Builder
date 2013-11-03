@@ -21,13 +21,7 @@ if(!isset($_GET[id])) {
 	foreach $matches as $match { 
 		print_r $match;
 	?>
-		<tr>
-			<td><?echo $match[0]?></td>
-			<td><?echo $match[1]?></td>
-			<td><?	if($match[Result] == "FIRST") echo $match[0];
-					elseif($match[Result] == "SECOND") echo $match[1];
-					else echo "Draw";?></td>
-		</tr>
+		
 	<?} // end foreach ?>
 	</tbody>
 </table>
