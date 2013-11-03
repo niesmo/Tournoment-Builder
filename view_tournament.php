@@ -32,6 +32,7 @@ ctx.canvas.height = window.innerHeight;
 
 ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",window.innerWidth/2,50);
+ctx.fillText(num_buckets,200,100);
 
 var players = new Array();
 var matches = new Array();
