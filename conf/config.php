@@ -5,6 +5,7 @@ function __autoload($class)
 {
     require_once (__DIR__ . "/../classes/" . $class . "_class.php");
 }
+require_once(__DIR__ . "/../inc/functions.php");
 
 
 define ( DB_USER, "root" );
