@@ -15,9 +15,7 @@
       
       for ($x=0; $x<9; $x++)
       {
-        if ((($x+1)%3)==0) {
-          echo "<div class='row-fluid'>\n";
-        }
+
         echo "<div class='span4'>\n";
         echo "<h4><a href=\"view_tournament.php?id=". $list_of_tournaments[$x]['TournamentID']. "\">". $list_of_tournaments[$x]['Name']." </a></h4>\n";
         echo "<p>Tournament Description:". $list_of_tournaments[$x]['Description'] ." </p>\n";
@@ -25,6 +23,7 @@
         echo "</div>\n";
         if ((($x+1)%3)==0) {
           echo "</div> <!--/row-->";
+          echo "<div class='row-fluid'>\n";
         }
       } 
       ?>
