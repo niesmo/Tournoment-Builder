@@ -32,16 +32,25 @@ var c=document.getElementById("myCanvas");
 var ctx=c.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
-ctx.moveTo(100,100);
+ctx.moveTo(window.innerWidth/2,window.innerHeight/2);
 ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",10,50);
+var players = new Array();
+	
+	<? foreach($participants as $val){
+		echo "players.push( '" . $val['Name'] . "');";
+	}?>
+	for(var j=0;j<num_participants; j++) {
+		alert(players[j]);
+	}
+
 if(num_participants==4){
 	player_height = ctx.canvas.height/4;
 	player_width = ctx.canvas.width/3;
 	for(var i = 0;i<4;i++){
-	ctx.moveTo(player_width * i,player_height * i);
-	ctx.lineTo(player_width * (i+1),player_height * (i+1));
-	ctx.stroke();		
+		ctx.moveTo(player_width * i,player_height * i);
+		ctx.lineTo(player_width * (i+1),player_height * (i+1));
+		ctx.stroke();		
 	}
 	
 }
