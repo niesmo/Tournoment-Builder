@@ -33,8 +33,8 @@ class Tournament{
 		for($i=($numberOfPartsNeeded-1);$i>=0;$i--){
 			if($count < 0)
 				break;
-			echo " COUNT " . $count . "\n" ;
-			echo " I " . $i . "\n" ;
+			//echo " COUNT " . $count . "\n" ;
+			//echo " I " . $i . "\n" ;
 			
 			if($i > count($participants)-1){
 				$this->db->insert("`Match`" , "EntryID1, EntryID2, Bye, Result, Round" , $participants[$count--]['EntryID'] . " , -1 , 1 , 'FIRST' , 0");
@@ -50,6 +50,7 @@ class Tournament{
         	//Adding the result
         	$this->db->update("`Match`", "Result = '$result'", " MatchID = $matchID");
         	$matchLeft = $this->matchesLeft($t_id);
+        	echo "LEFT : " . count($matchLeft) . "\n";
         	if(count($matchLeft) == 0){
         		$round = $this->getRound($t_id);
         		$n = $this->getNumberOfMatchesInRound($t_id , $round);
