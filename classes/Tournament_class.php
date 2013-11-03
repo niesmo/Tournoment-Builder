@@ -13,8 +13,8 @@ class Tournament{
 	}
 	
 	
-	// public function getParticipants($tournament_id){
-	// 	return $this->db->select("Entry as e, Participant as p" , "*" , "e.TournamentID = $tournament_id AND e.ParticipantID = p.ParticipantID");
-	// }
+	public function getParticipants($tournament_id){
+		return $this->db->select("Entry as e, Participant as p" , "*" , "e.TournamentID = $tournament_id AND e.ParticipantID = p.ParticipantID");
+	}
 }
 ?>
