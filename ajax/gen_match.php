@@ -34,7 +34,7 @@ function merge($a, $b) {
 	return $out;
 }
 
-function gen_matches($round, $entryIDs) {
+public function gen_matches($round, $entryIDs) {
 	if($db->isConnected())
 		echo "<h1>Connected</h1>";
 	print_r($entryIDs);
