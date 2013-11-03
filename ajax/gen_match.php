@@ -2,6 +2,7 @@
 global $db;
 if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'", "", "", "1");
+	print_r($match);
 	$round = $match['Round']+1;
 	$initialEntries = $db->select("Entry", "EntryID", "TournamentID=$_GET[id]");
 	$initialEntries = merge($initialEntries, []);
