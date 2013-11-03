@@ -38,9 +38,6 @@ ctx.stroke();
 	if($num_participants>0){
 		echo "<h3>Current Participants:</h3>";
 
-		if($num_participants>){
-
-		}
 		foreach($participants as $val){
 			echo "<li>";
 			echo $val['Name'];
