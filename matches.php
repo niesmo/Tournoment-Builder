@@ -32,7 +32,8 @@ includeHeader("Administration Panel");?>
 			<?if($match["Result"] == "") { // match in progress ?>
 				<td><button class="btn" onclick ="submitResult(<?=$match['MatchID']?> , 'FIRST' , <?=$_GET[id]?>)"><?echo $part_1['Name']?></button></td>
 				<td><button class="btn" onclick ="submitResult(<?=$match['MatchID']?> , 'SECOND', <?=$_GET[id]?>)"><?echo $part_2['Name']?></button></td>
-			<?} else {?>
+			<?} else {
+				echo $match["Result"];?>
 				<td <?if($match["Result"] == "FIRST") echo "class='bg-green'";?>><?echo $part_1['Name']?></td>
 				<td <?if($match["Result"] == "SECOND") echo "class='bg-green'";?>><?echo $part_2['Name']?></td>
 			<?}?>
