@@ -95,7 +95,7 @@ class Database {
 	}
 	
 	public function lastInsertedId() {
-		return mysqli_insert_id ($connection);
+		return mysqli_insert_id ($this->connection);
 		//return $connection.insert_id;
 	}
 	
