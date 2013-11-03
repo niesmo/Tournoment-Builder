@@ -44,7 +44,7 @@ var player_width = 150;
 
 //build structure
 function drawLines(num_row,column){
-	var row_height = Math.pow(player_height,column);
+	var row_height = player_height*Math.pow(2,column);
 	var start_height = (player_height * (column-1)*2) -(player_height*.5);
 
 
