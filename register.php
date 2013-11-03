@@ -24,13 +24,13 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	$participants =$tournament->getParticipants($t_id);
 
 	if(count($participants)>0){
-		echo "<h3>Current Participants:</h3><ol>";
-		foreach($participants as $val){
-			echo "<li>";
-			echo $val['Name'];
-			echo "</li>\n";
-		}	
-	}
+                                echo "<h3>Current Participants:</h3><table>";
+                                $counter = 0;
+                                foreach($participants as $val){
+                                        echo "<tr><td>". ($counter+=1) .". </td><td>".$val['Name']."</td><td><i class='icon-remove' onclick='removeParticipant(".$val['ParticipantID'].")'></i></td></tr>";
+                                }  
+                                echo "</table>";                                
+                }
 	else{
 		echo "<h3>No Participants</h3>";
 	}
