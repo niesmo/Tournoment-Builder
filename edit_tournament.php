@@ -47,7 +47,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 </form>
 </div>
 <div class='span6'>
-<form action="edit_tournament.php" method="POST">
+<!-- <form action="edit_tournament.php" method="POST">
   <fieldset>
     <h2 class="form-signin-heading"><? echo $result['Name']; ?></h2>
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
@@ -68,7 +68,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 				<textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Edit Tournament Details" />
   </fieldset>
-</form>
+</form> -->
 
 
 
