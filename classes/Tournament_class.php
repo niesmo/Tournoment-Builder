@@ -29,7 +29,7 @@ class Tournament{
                 $this->db->update("Tournament" , "Status = 'PROGRESS'" , "TournamentID = $tournament_id");
 				$participants = $this->db->select("Tournament as t, Entry as e, Participant as p" , "$fields" , "e.ParticipantID = p.ParticipantID AND e.TournamentID = t.TournamentID");
 				$numberOfPartsNeeded = pow(2,ceil(log(count($participants) , 2)));
-				$count = ($numberOfPartsNeeded-1);
+				$count = count($participants) -1;
 				for($i=($numberOfPartsNeeded-1);$i>=0;$i--){
 					echo "COUNT " . $count ;
 					if($i > count($participants)-1){
