@@ -1,30 +1,49 @@
 <? include("conf/config.php");
 include("inc/header.php");
-if(!isset($_GET['id']) && !isset($_POST['id'])) {
+if(!isset($_GET['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {
 
-	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
+	$t_id = $_GET['id'];
 
-	if(isset($_POST['submit'])){
-		echo "In the submit if<br>";
-		$db->insert("Participant", "Name", "'$_POST[name]'");
-		$id = $db->lastInsertedId(); // get ParticipantID
-		$db->insert("Entry", "TournamentID, ParticipantID", "$t_id, $id");
-	}?>
-      <div class="row-fluid">
-        <div class="span6">
+?>
+    <div class="row-fluid">
+    <div class="span12">
 	<?
-	$result = $db->select("Tournament", "Name, Description, Rules",
+	$result = $db->select("Tournament", "*",
 		"TournamentID = $t_id")[0]; // get name, description, and rules
 	echo "<h1>" . $result['Name'] . "</h1>"; // name
 	echo "<p>" . $result['Description'] . "</p>"; // description
 	echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
 	$participants =$tournament->getParticipants($t_id);
-	print_r($participants);
-	if(count($participants)>0){
-		echo "<h3>Current Participants:</h3><ol>";
+	//$matches =$tournament->getMatches($t_id);
+	//print_r($participants);
+	$num_participants = count($participants);
+
+	?>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var num_participants = <? echo $num_participants; ?>;
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.canvas.width  = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+
+</script>
+<?
+	if($num_participants>0){
+		echo "<h3>Current Participants:</h3>";
+
+		if($num_participants==4){
+
+		}
 		foreach($participants as $val){
 			echo "<li>";
 			echo $val['Name'];
@@ -34,20 +53,9 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	else{
 		echo "<h3>No Participants</h3>";
 	}
-	
-	echo "</ol></div><div class='span6'>";
 }
 ?>
 
-
-<form action="register.php" method="POST">
-  <fieldset>
-    <h2 class="form-signin-heading">Register for this tournament</h2>
-   	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
-	<input name="name" type="text" placeholder="Participant Name"/>
-	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
-  </fieldset>
-</form>
 </div>
 </div>
 <?require_once("inc/footer.php")?>
