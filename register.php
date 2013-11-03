@@ -27,7 +27,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
                                 echo "<h3>Current Participants:</h3><table>";
                                 $counter = 0;
                                 foreach($participants as $val){
-                                        echo "<tr><td>". ($counter+=1) .". </td><td>".$val['Name']."</td><td><i class='icon-remove' onclick='removeParticipant(".$val['ParticipantID'].")'></i></td></tr>";
+                                        echo "<tr><td>". ($counter+=1) .". </td><td>".$val['Name']."</td><td><i class='icon-remove' onclick='removeParticipant(".$val['ParticipantID']." , " .$t_id. " )'></i></td></tr>";
                                 }  
                                 echo "</table>";                                
                 }
