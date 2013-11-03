@@ -8,7 +8,7 @@ else
 
 	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
 	if(isset($_POST['submit'])){
-			$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]'","TournamentID=$t_id");
+			$db->update("Tournament", "Name='$_POST[tournament_name]', Rules = '$_POST[rules]', MaxPlayer = $_POST[max_player] , Description='$_POST[description]'","TournamentID=$t_id");
 			
 	}?>
 	<div class="container">
@@ -64,8 +64,9 @@ else
 	          <option value="ELO">Elo Ranking System</option>
 	          <option value="MTG">Tournament Inspired by MtG</option>
 	        </select><br>
+	        <input name="max_player" type="number" value="<?=$result['MaxPlayer']?>" placeholder="max number of player"/><br>
 	        <textarea class="input-block-level" name="description" rows="3" placeholder="<? echo $result['Description'] ?>"></textarea><br>
-	                                <textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
+	        <textarea class="input-block-level" name="rules" rows="3" placeholder="<? echo $result['Rules'] ?>"></textarea><br>
 	        <input class="btn btn-primary btn-large" type="submit" name="submit" value="Edit Tournament Details" />
 	  </fieldset>
 	</form>
