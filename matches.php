@@ -21,7 +21,9 @@ includeHeader("Administration Panel");?>
 	<? 	$matches = $db->select("`Match` as m , Entry as e, Participant as p", "m.MatchID, EntryID1, EntryID2, Result, p.Name",
 		"(e.EntryID = m.EntryID1 OR (e.EntryID = m.EntryID2 OR m.EntryID2 = -1)) AND e.TournamentID = '$_GET[id]'",
 		"MatchID");
+		echo "<pre>";
 		print_r($matches);
+		echo "</pre>";
 	foreach($matches as $match) {
 			$part_1 = $participant->getParticipantInfo($match['EntryID1']);
 			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
