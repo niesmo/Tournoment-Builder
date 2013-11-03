@@ -20,7 +20,7 @@ function removeParticipant(part_id ){
 	});
 }
 
-function submitResult(m_id, res){
+function submitResult(m_id, res, t_id){
     	$.ajax({
 		url:'ajax/submit_match_result.php',
 		type: 'POST',
@@ -31,7 +31,21 @@ function submitResult(m_id, res){
 			//alert(data.contains("SUCCESS"));
 			//alert(.contains("SUCCESS"));
 			if(data == "SUCCESS"){
-				location.reload(true);
+				$.ajax({
+					url:'ajax/gen_match.php',
+					type: 'POST',
+					data: {MatchID :m_id, TournamentID : t_id },
+					success: function(data){
+						if(data == "SUCCESS"){
+							location.reload(true);
+						}
+						else{
+							alert(data);
+							alert("Something went wrong!!");
+						}
+						
+					}
+				});
 			}
 			else{
 				alert(data);
@@ -40,6 +54,8 @@ function submitResult(m_id, res){
 			
 		}
 	});
+	
+	
 }
 
 $(document).ready(function(){
