@@ -1,14 +1,15 @@
 <? include("conf/config.php");
-includeHeader("Current Matches");?>
+includeHeader("Administration Panel");?>
 <div class="container">
 	<div class="row-fluid">
 <?if(!isset($_GET["id"])) {
 	echo "Error: No tournament ID supplied";
 } else {
-	$result = $db->select("Tournament", "Name, Description",
-		"TournamentID = $_GET[id]")[0]; // get name and description
-	echo "<h1>Current Matches for " . $result["Name"] . "</h1>";
-	echo "<p>" . $result["Description"] . "</p>"; ?>
+	$result = $db->select("Tournament", "Name, Description, Status",
+		"TournamentID = $_GET[id]")[0];
+	echo "<h1>Administrative options for " . $result["Name"] . "</h1>";
+	echo "<p>" . $result["Description"] . "</p>"; 
+	if($result["Status"] == "PROGRESS") { // display current matches?>
 	<table class='table table-bordered'>
 		<thead>
 			<tr>
@@ -36,6 +37,11 @@ includeHeader("Current Matches");?>
 	<?} // end foreach ?>
 		</tbody>
 	</table>
+<?} elseif($result["Status"] == "OPEN") {?>
+	<h1>Edit Options, Close Registration</h1>
+<?} else {?>
+	<h3>Tournament has ended</h3>
+	<h4>Winner: </h4
 <?}?>
 	</div>
 </div>
