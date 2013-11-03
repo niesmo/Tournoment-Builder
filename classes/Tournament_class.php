@@ -52,15 +52,15 @@ class Tournament{
         	$matchLeft = $this->matchesLeft($t_id);
         	//echo "LEFT : " . count($matchLeft) . "\n";
         	if(count($matchLeft) == 0){
-        		echo "Insde IF \n";
         		$round = $this->getRound($t_id);
-        		echo "ROUND  :  " . $round . "\n";
+        		//echo "ROUND  :  " . $round . "\n";
         		$n = $this->getNumberOfMatchesInRound($t_id , $round);
         		//$n = $n /2;
         		echo  "N : " . $n . "\n";
           		$winner = $this->getWinners($t_id, $round);
-        		for($i = 0;$i<$n;$i++){
-        			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winner[$i++]['EntryID'] . " , ". $winner[$i]['EntryID'] . " , NULL, $round+1 , -1");
+          		print_r($winners);
+ OR	for($i = 0;$i<$n;$i++){
+         			$this->db->insert("`Match`" , "EntryID1, EntryID2, Result , Round , Bye" , $winner[$i++]['EntryID'] . " , ". $winner[$i]['EntryID'] . " , NULL, $round+1 , -1");
         		}
         	}
         	
@@ -94,13 +94,20 @@ class Tournament{
         public function getWinners($t_id , $round ){
         	//merge the first winners and second winners
         	// SELECT * FROM Entry as e, `Match` as m WHERE (e.EntryID = m.EntryID2)   AND e.TournamentID = 17 AND Result = "SECOND" GROUP BY MatchID;
-        	$first = $this->db->select("Entry as e, `Match` as m" , "*" , "e.EntryID = m.EntryID1  AND e.TournamentID = $t_id AND Result = 'FIRST' AND Round = $round GROUP BY MatchID") ;
-        	$second = $this->db->select("Entry as e, `Match` as m" , "*" , "e.EntryID = m.EntryID2  AND e.TournamentID = $t_id AND Result = 'SECOND' AND Round = $round GROUP BY MatchID") ;
+        	$first = $this->db->select("Entry as e, `Match` as m" , "*" , "e.EntryID = m.EntryID1  AND e.TournamentID = $t_id AND Result = 'FIRST' AND Round = $round GROUP BY MatchID ") ;
+        	$second = $this->db->select("Entry as e, `Match` as m" , "*" , "e.EntryID = m.EntryID2  AND e.TournamentID = $t_id AND Result = 'SECOND' AND Round = $round GROUP BY MatchID ") ;
         	$total = array_merge($first, $second);
         	//print_r($total);
+        	usort($total , "cmp");
         	return $total;
         }
         
+}
+function cmp($a,$b){
+	if($a == $b)
+		return 0;
+	return ($a['EntryID'] < $b['EntryID']) ? -1:1;
+		
 }
 //SELECT e.EntryID FROM `Match` as m, Entry as e WHERE e.EntryID = m.EntryID1 AND m.MatchID = 171;
 //SELECT e.TournamentID FROM Tournament as t, Entry as e WHERE t.TournamentID = e.TournamentID AND e.EntryID = 67;
