@@ -1,5 +1,5 @@
 <? include("conf/config.php");
-include("inc/header.php");
+includeHeader("View Tournament");
 if(!isset($_GET['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {

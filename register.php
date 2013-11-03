@@ -1,5 +1,5 @@
 <? include("conf/config.php");
-include("inc/header.php");
+includeHeader("Register for a Tournament");
 if(!isset($_GET['id']) && !isset($_POST['id'])) {
 	echo "Error: No tournament ID supplied";
 } else {

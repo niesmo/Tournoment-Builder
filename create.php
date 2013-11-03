@@ -1,6 +1,6 @@
 <?
 require_once("conf/config.php");
-include("inc/header.php");
+includeHeader("Create a Tournament");
 if(isset($_POST['submit'])){
 	$id = $tournament->newTournament($_POST['name'], $_POST['type'], $_POST['description'], $_POST['rules']);
 	if($id == -1){
