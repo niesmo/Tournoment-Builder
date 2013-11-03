@@ -11,7 +11,7 @@ if(!isset($_GET['id'])) {
 
 	$participants =$tournament->getParticipants($t_id);
 
-	//$matches =$tournament->getMatches($t_id);
+	$matches =$tournament->getMatches($t_id);
 
 	$num_participants = count($participants);
 
