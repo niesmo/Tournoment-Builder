@@ -59,7 +59,7 @@ function drawLines(num_row,column){
 			ctx.lineTo(player_width * (column+1),start_height + (player_height * i)+5);
 			ctx.stroke();
 			//diaganol lines
-			if (num_row%2==0) {
+			if (i%2==0) {
 				ctx.strokeStyle = '#000000';
 				
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5)));
