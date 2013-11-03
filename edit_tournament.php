@@ -42,9 +42,19 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 
 <form action="register.php" method="POST">
   <fieldset>
-    <h2 class="form-signin-heading">Register for this tournament</h2>
+    <h2 class="form-signin-heading">Add Player</h2>
    	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
 	<input name="name" type="text" placeholder="Participant Name"/>
+	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
+  </fieldset>
+</form>
+</div>
+<div class='span6'>
+<form action="edit_tournament.php" method="POST">
+  <fieldset>
+    <h2 class="form-signin-heading"><? echo $result['Name']; ?></h2>
+   	<input type="hidden" name="id" value="<? echo $t_id; ?>"/>
+	<input name="tournament_name" type="text" placeholder="<? echo $result['Name']; ?>"/>
 	<input class="btn btn-primary btn-large" type="submit" name="submit" value="Submit Entry" />
   </fieldset>
 </form>
