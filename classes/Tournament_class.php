@@ -67,7 +67,6 @@ class Tournament{
         	$entry = $entry[0]['EntryID'];
         	
         	$t_id = $this->db->select("Tournament as t, Entry as e", "e.TournamentID" , "t.TournamentID = e.TournamentID AND e.EntryID = $entry");
-        	echo "T_ID : " . $t_id[0]['TournamentID'] . "\n";
         	return $t_id[0]['TournamentID'];
         }
         
@@ -78,8 +77,8 @@ class Tournament{
         }
         
         public function getRound($tournamentID){
-        	$data = $this->db->select("Entry as e, `Match` as m" , "Round" , "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Result IS NOT NULL" , "" ,"" , 1);
-        	return $data['Round'];
+        	$data = $this->db->select("Entry as e, `Match` as m" , "Round" , "e.EntryID = m.EntryID1 AND e.TournamentID = $tournamentID AND Result IS NOT NULL");
+        	return $data[0]['Round'];
         	//SELECT Round FROM Entry as e, `Match` as m WHERE e.EntryID = m.EntryID1 AND e.TournamentID = 17 AND Result IS NOT NULL LIMIT 1;
 
         }
