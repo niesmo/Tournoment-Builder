@@ -1,7 +1,7 @@
 <?require_once("conf/config.php");?>
 <?require_once("inc/header.php");?>
       <div class="row-fluid">
-        <div class="span9">
+        <div class="span9 centered">
           <div class="hero-unit">
             <h1>Tournament Builder</h1>
             <p>Tournament Builder lets you build Coowesomazing tournaments easily</p>
