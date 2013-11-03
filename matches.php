@@ -18,8 +18,7 @@ if(!isset($_GET["id"])) {
 	<tbody>
 <? $matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
 		"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2");
-	//foreach $matches as $match {
-	$match = $matches[0]?>
+	foreach($matches as $match) {?>
 		<tr>
 			<td><?echo $match[0]?></td>
 			<td><?echo $match[1]?></td>
@@ -27,7 +26,7 @@ if(!isset($_GET["id"])) {
 					elseif($match["Result"] == "SECOND") echo $match[1];
 					else echo "Draw";?></td>
 		</tr>
-	<?//} // end foreach ?>
+	<?} // end foreach ?>
 	</tbody>
 </table>
 <?} include("inc/footer.php"); ?>
