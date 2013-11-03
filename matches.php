@@ -18,7 +18,7 @@ if(!isset($_GET["id"])) {
 	</thead>
 	<tbody>
 <? 	$matches = $db->select("`Match` as m , Entry as e", "EntryID1, EntryID2, Result",
-	"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = 2",
+	"(e.EntryID = m.EntryID1 OR e.EntryID = m.EntryID2) AND e.TournamentID = '$_GET[id]'",
 	"MatchID");
 foreach($matches as $match) {?>
 		<tr>
