@@ -1,6 +1,4 @@
 <? include('../conf/config.php');
-global $db;
-global $Participant;
 if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 	$match = $db->select("`Match`", "Round, EntryID1", "MatchID='$_GET[MatchID]'")[0];
 	$round = $match['Round']+1;
@@ -16,7 +14,7 @@ if(isset($_GET['MatchID']) && isset($_GET['id'])) {
 				e.TournamentID = '$_GET[id]' AND m.Round = $round-1")[0];
 			print_r($lastMatch);
 			$winnerID = $lastMatch[$lastMatch['Result'] == 'FIRST' ? 'EntryID1' : 'EntryID2'];
-			$winner = $Participant->getParticipantInfo($winnerID);
+			$winner = $participant->getParticipantInfo($winnerID);
 			$db->update("Tournament", "Status='CLOSE', Winner='$winner'", "TournamentID='$_GET[id]'");
 		} else {
 			$first = $db->select("`Match` as m , Entry as e", "EntryID1",
