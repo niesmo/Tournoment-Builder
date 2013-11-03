@@ -2,37 +2,40 @@
 include("inc/header.php");
 if(!isset($_GET['id']) && !isset($_POST['id'])) {
         echo "Error: No tournament ID supplied";
-} else {
+} 
+else 
+{
 
-        $t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
-        if(isset($_POST['submit'])){
-                $db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]'","TournamentID=$t_id");
-                
-        }?>
-      <div class="row-fluid">
-        <div class="span6">
-        <?
-        $result = $db->select("Tournament", "Name, Description, Rules",
-                "TournamentID = $t_id")[0]; // get name, description, and rules
-        echo "<h1>" . $result['Name'] . "</h1>"; // name
-        echo "<p>" . $result['Description'] . "</p>"; // description
-        echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
+	$t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
+	if(isset($_POST['submit'])){
+			$db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]'","TournamentID=$t_id");
+			
+	}?>
+	<div class="row-fluid">
+		<div class="span6">
+		<?
+		$result = $db->select("Tournament", "Name, Description, Rules",
+				"TournamentID = $t_id")[0]; // get name, description, and rules
+		echo "<h1>" . $result['Name'] . "</h1>"; // name
+		echo "<p>" . $result['Description'] . "</p>"; // description
+		echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
 
-        $participants =$tournament->getParticipants($t_id);
-        // print_r($participants);
-        if(count($participants)>0){
-                echo "<h3>Current Participants:</h3><ol>";
-                foreach($participants as $val){
-                        echo "<li>";
-                        echo $val['Name'];
-                        echo "</li>\n";
-                }        
-        }
-        else{
-                echo "<h3>No Participants</h3>";
-        }
-        
-        echo "</ol></div><div class='span6'>";
+		$participants =$tournament->getParticipants($t_id);
+		// print_r($participants);
+		if(count($participants)>0){
+				echo "<h3>Current Participants:</h3><ol>";
+				foreach($participants as $val){
+						echo "<li>";
+						echo "<i class='icon-remove'></i>" . $val['Name'];
+						echo "</li>\n";
+				}        
+		}
+		else{
+				echo "<h3>No Participants</h3>";
+		}
+
+		echo "</ol>
+	</div><div class='span6'>";
 }
 ?>
 
