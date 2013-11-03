@@ -56,7 +56,7 @@ class Tournament{
         		$round = $this->getRound($t_id);
         		echo "ROUND  :  " . $round . "\n";
         		$n = $this->getNumberOfMatchesInRound($t_id , $round);
-        		$n = $n /2;
+        		//$n = $n /2;
         		echo  "N : " . $n . "\n";
           		$winner = $this->getWinners($t_id, $round);
         		for($i = 0;$i<$n;$i++){
