@@ -25,20 +25,19 @@ foreach($matches as $match) {?>
 		<?if($match["Result"] == "") { // match in progress
 			$part_1 = $participant->getParticipantInfo($match['EntryID1']);
 			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
-		
-			echo "test ";
 			print_r( $part_1);
+			print_r( $part_2);
 		?>
 			//getting the participant info
-			<td><button class="btn"><?echo $part_1?></button></td>
-			<td><button class="btn"><?echo $part_2?></button></td>
+			<td><button class="btn"><?echo $part_1['Name']?></button></td>
+			<td><button class="btn"><?echo $part_2['Name']?></button></td>
 			<td><i>Awaiting Results</i></td>
 			<td><button class="btn">Draw</button>
 		<?} else {?>
 			<td><?echo $match["EntryID1"]?></td>
 			<td><?echo $match["EntryID2"]?></td>
-			<td><?	if($match["Result"] == "FIRST") echo $part_1;
-					elseif($match["Result"] == "SECOND") echo $part_2;
+			<td><?	if($match["Result"] == "FIRST") echo $part_1['Name'];
+					elseif($match["Result"] == "SECOND") echo $part_2['Name'];
 					elseif($match["Result"] == "TIE") echo "Draw";?></td>
 			<td></td>
 		<?}?>
