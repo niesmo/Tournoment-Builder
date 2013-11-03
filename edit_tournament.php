@@ -6,7 +6,7 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
 
         $t_id = (isset($_GET['id']))?$_GET['id']:$_POST['id'];
         if(isset($_POST['submit'])){
-                $db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]'","TournamentID=$t_id");
+                $db->update("Tournament", "Name='$_POST[tournament_name]', Description='$_POST[description]' , Status='$_POST[status]' , Type='$_POST[type]'","TournamentID=$t_id");
                 
         }?>
       <div class="row-fluid">
@@ -16,7 +16,9 @@ if(!isset($_GET['id']) && !isset($_POST['id'])) {
                 "TournamentID = $t_id")[0]; // get name, description, and rules
         echo "<h1>" . $result['Name'] . "</h1>"; // name
         echo "<p>" . $result['Description'] . "</p>"; // description
-        echo "<h3>Rules:</h3><p>" . $result['Rules'] . "</p>";
+        echo "<h3>Rules:</h3><p>"."<h4>". $result['Type'] ."</h4>"  . $result['Rules'] . "</p>";
+		echo "<h3>Status:" . $result['Status'] . "</h3>";
+
 		
         $participants =$tournament->getParticipants($t_id);
         // print_r($participants);
