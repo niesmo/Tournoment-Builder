@@ -5,7 +5,12 @@ function submitResult(m_id, res){
 		type: 'POST',
 		data: {MatchID :m_id ,result : res },
 		success: function(data){
-			alert(data);
+			if(data == "SUCCESS"){
+				location.reload(true);
+			}
+			else{
+				alert("SOMETHING WENT WRONG");
+			}
 		}
 	});
 }
