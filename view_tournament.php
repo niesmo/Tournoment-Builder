@@ -30,8 +30,8 @@ ctx.font="40px Arial";
 ctx.fillText("<? echo $result['Name']; ?>",window.innerWidth/2,50);
 
 var players = new Array();
-var player_height = ctx.canvas.height/5;
-var player_width = ctx.canvas.width/6;
+var player_height = ctx.canvas.height/2;
+var player_width = ctx.canvas.width/2;
 	
 	<? foreach($participants as $val){
 		echo "players.push( '" . $val['Name'] . "');";
