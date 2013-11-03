@@ -9,7 +9,7 @@ function progressTournament(t_id){
 				type: 'POST',
 				data: {id : t_id },
 				success: function(data){
-					
+					location.reload(true);
 				}
 			});
 		}
