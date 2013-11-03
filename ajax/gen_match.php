@@ -23,6 +23,7 @@ function merge($a, $b) {
 }
 
 function gen_matches($round, $entryIDs) {
+	echo "gen_matches called";
 	print_r($entryIDs);
 }
 ?>
