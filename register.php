@@ -1,7 +1,6 @@
 <? include("conf/config.php");
 include("inc/header.php");
-      <div class="row-fluid">
-        <div class="span6">
+
 
 if(!isset($_GET[id])) {
 	echo "Error: No tournament ID supplied";
@@ -24,7 +23,8 @@ if(!isset($_GET[id])) {
 }
 ?>
 
-
+      <div class="row-fluid">
+        <div class="span6">
 
 <form action="#" method="POST">
   <fieldset>
@@ -35,4 +35,4 @@ if(!isset($_GET[id])) {
 </form>
 </div>
 </div>
-<?include("inc/footer.php");?>
+<?require_once("inc/footer.php")?>
