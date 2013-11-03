@@ -10,9 +10,14 @@
           <div class="row-fluid">
           
       <?php 
-      $list_of_tournaments = $db->select("Tournament","*","","","","9");
+      $list_of_tournaments = $db->select("Tournament","*");
+      echo "<pre>";
       //print_r($list_of_tournaments);
-      echo "<h1>".$list_of_tournaments[5][1]."</h1>";
+      echo "</pre>";
+      foreach ($list_of_tournaments as $key => $value){
+            echo "TEST $value";     
+      }
+      echo "<h1>TEST ".$list_of_tournaments[0][1]."</h1>";
       for ($x=0; $x<9; $x++)
       {
         if ((($x+1)%3)==0) {
