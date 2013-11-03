@@ -60,7 +60,8 @@ function drawLines(num_row,column){
 			ctx.stroke();
 			//diaganol lines
 			if (num_row%2==0) {
-				ctx.strokeStyle = '#000ff0';
+				ctx.strokeStyle = '#000000';
+				ctx.fillText(start_height + (player_height * (i+.5)),player_width * (column+2),start_height + (player_height * (i+.5)));
 				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5)));
 				ctx.stroke();	
 			}else{
