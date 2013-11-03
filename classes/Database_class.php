@@ -38,7 +38,7 @@ class Database {
 	
 	public function insert($tableName, $columns, $values, $where = "") {
 		$q = "INSERT INTO $tableName ($columns) VALUES ($values)";
-		//echo $q;
+		echo $q;
 		if ($where != "")
 			$q .= "WHERE $where";
 		$this->query ( $q );
