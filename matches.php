@@ -25,7 +25,9 @@ foreach($matches as $match) {?>
 		<?if($match["Result"] == "") { // match in progress
 			$part_1 = $participant->getParticipantInfo($match['EntryID1']);
 			$part_2 = $participant->getParticipantInfo($match['EntryID2']);
-			echo "test ". $part_1 . "<br>";
+		
+			echo "test ";
+			print_r($part_1);
 		?>
 			//getting the participant info
 			<td><button class="btn"><?echo $part_1?></button></td>
