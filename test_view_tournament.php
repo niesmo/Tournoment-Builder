@@ -81,32 +81,30 @@ function drawLines(num_row,column){
 	}
 }
    
- //  window.requestAnimFrame = (function(callback) {
- //    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
- //    function(callback) {
- //      window.setTimeout(callback, 1000 / 60);
- //    };
- //  })();
+  window.requestAnimFrame = (function(callback) {
+    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+    function(callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+  })();
 
- //  function animate() {
- //    var canvas = document.getElementById('myCanvas');
- //    var ctx = canvas.getContext('2d');
+  function animate() {
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
 
- //    // update
+    // update
 
- //    // clear
- //    ctx.clearRect(0, 0, canvas.width, canvas.height);
- //    ctx.canvas.width  = window.innerWidth;
-	// ctx.canvas.height = window.innerHeight;
- //    drawLines(num_buckets,1);
- //    // draw stuff
+    ctx.canvas.width  = window.innerWidth;
+	ctx.canvas.height = window.innerHeight;
+    drawLines(num_buckets,1);
+    // draw stuff
 
- //    // request new frame
- //    requestAnimFrame(function() {
- //      animate();
- //    });
- //  }
- //  animate();
+    // request new frame
+    requestAnimFrame(function() {
+      animate();
+    });
+  }
+  animate();
 
 
 </script>
