@@ -41,6 +41,11 @@ var player_width = 150;
 	<? foreach($participants as $val){
 		echo "players.push( '" . $val['Name'] . "');";
 	}?>
+var my_match = new Array();
+	<? foreach($matches as $value){
+		echo "my_match.push( '" . $value['EntryID1'] . "');";
+		echo "my_match.push( '" . $value['EntryID2'] . "');";
+	}?>
 
 //build structure
 function drawLines(num_row,column){
