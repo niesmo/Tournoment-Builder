@@ -48,8 +48,8 @@ function drawLines(num_row,column){
 	var start_height = player_height * column;
 	if(num_row==1){
 		ctx.fillText("Winner",player_width * column,start_height);
-		ctx.moveTo(player_width * column, start_height +(player_height * num_row * column));
-		ctx.lineTo(player_width * (column +1),player_height * num_row*column);
+		ctx.moveTo(player_width * column, start_height);
+		ctx.lineTo(player_width * (column +1),start_height);
 		ctx.stroke();
 	}
 	else{
@@ -58,15 +58,16 @@ function drawLines(num_row,column){
 			ctx.moveTo(player_width * column,player_height * i +5);
 			ctx.lineTo(player_width * (column+1),player_height * i+5);
 			ctx.stroke();
+			//diaganol lines
 			if (num_row%2==0) {
-				ctx.lineTo(player_width * (column+2),player_height * (i+.5));
+				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i+.5));
 				ctx.stroke();	
 			}else{
-				ctx.lineTo(player_width * (column+2),player_height * (i-.5));
+				ctx.lineTo(player_width * (column+2),start_height + (player_height * (i-.5)));
 				ctx.stroke();	
 			}
 		}
-		drawLines(num_row/2,column+1);
+		drawLines(num_row/2,column+2);
 	}
 }
 	drawLines(num_buckets,1);
