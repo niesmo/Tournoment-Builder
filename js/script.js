@@ -4,8 +4,8 @@ function submitResult(m_id, res){
 		type: 'POST',
 		data: {MatchID :m_id ,result : res },
 		success: function(data){
-			alert(data);
-			alert(data.toString().contains("SUCCESS"));
+			alert(data.toString());
+			//alert(.contains("SUCCESS"));
 			//if(data.contains("SUCCESS") != -1){
 			//	location.reload(true);
 			//}
