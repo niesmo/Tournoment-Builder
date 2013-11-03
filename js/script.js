@@ -1,5 +1,23 @@
 function removeParticipant(part_id){
-	alert(part_id);	
+	$.ajax({
+		url:'ajax/remove_participant.php',
+		type: 'POST',
+		data: {Participant :part_id },
+		success: function(data){
+			//alert(data.toString());
+			//data = data.toString();
+			//alert(data.contains("SUCCESS"));
+			//alert(.contains("SUCCESS"));
+			if(data == "SUCCESS"){
+				location.reload(true);
+			}
+			else{
+				alert(data);
+				alert("Something went wrong!!");
+			}
+			
+		}
+	});
 }
 
 function submitResult(m_id, res){
