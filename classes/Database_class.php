@@ -1,3 +1,4 @@
+//Author Nima Esmaili Mokaram
 <?
 
 class Database {
