@@ -4,7 +4,7 @@
 class Database {
 	private $lastResult;
 	private $connection;
-    private $debug = true;
+    	private $debug = true;
 	
 	public function __construct($host, $user, $pass, $db ) {
 		$this->lastResult = NULL;
@@ -29,7 +29,7 @@ class Database {
 	}
 	
 	/*the difference between execute and query is that query saves the last query
-     *but execute does not*/
+	*but execute does not*/
 	public function execute($query) {
 		return mysqli_query ( $this->connection, $query );
 	}
@@ -46,7 +46,7 @@ class Database {
 		return mysqli_affected_rows ( $this->connection );
 	}
 	
-    public function update($tableName, $set, $where="")
+	public function update($tableName, $set, $where="")
 	{
 		$q = "UPDATE $tableName SET $set WHERE $where";
 		//echo $q . "<br />";
@@ -61,13 +61,13 @@ class Database {
 		return mysqli_affected_rows ( $this->connection );
 	}
 	
-    public function select($tablesNames = "", $fields = "", $where = "", $groupby = "" , $sortby = "", $limit = "" ) {
+	public function select($tablesNames = "", $fields = "", $where = "", $groupby = "" , $sortby = "", $limit = "" ) {
 		$q = "SELECT " . ($fields == "" ? "*" : "$fields ") . ($tablesNames == "" ? "" : "FROM $tablesNames ") . ($where == "" ? "" : "WHERE $where ") . ($groupby == "" ? "" : " GROUP BY $groupby ") . ($sortby == "" ? "" : " ORDER BY $sortby ") . ($limit == "" ? "" : " LIMIT $limit ") ;
 		//echo $q . "<br />";
 		$this->query ($q);
                 
  //             return mysqli_fetch_array(MYSQLI_ASSOC);
-		$a = [];
+		$a = array();
 		while ( $entry = $this->fetchNextObject () )
 			$a [] = $entry;
 		return $a;
@@ -80,7 +80,7 @@ class Database {
 		if ($result == NULL || mysqli_num_rows ( $result ) < 1)
 			return NULL;
 		else
-            return mysqli_fetch_assoc($result);
+            	return mysqli_fetch_assoc($result);
 			//return mysqli_fetch_object ( $result );
 	}
 	
@@ -104,7 +104,7 @@ class Database {
 	
 	function __destruct() {
 		mysqli_close ($this->connection);
-        $this->connection = FALSE;
+        	$this->connection = FALSE;
 		
 	}
 }
